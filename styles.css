@@ -9,6 +9,43 @@
   --max: 1440px;
 }
 
+/* Projects Test layout */
+.test-page { padding: 72px 0 100px; }
+.test-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 46px; }
+.test-intro h1 { font-size: clamp(2rem, 5vw, 5rem); }
+.test-intro p { max-width: 220px; margin: 0; color: var(--muted); line-height: 1.45; }
+.test-layout { display: grid; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); min-height: 620px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.test-categories { padding: 12px 32px 12px 0; border-right: 1px solid var(--line); }
+.test-category { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font: inherit; font-size: 1.15rem; text-align: left; transition: color .2s ease, padding .2s ease; }
+.test-category:hover, .test-category.is-active { padding-left: 10px; color: var(--ink); }
+.test-category span { color: var(--coral); font-size: 1.2rem; opacity: 0; transition: opacity .2s ease; }
+.test-category:hover span, .test-category.is-active span { opacity: 1; }
+.test-project-panel { min-width: 0; padding-left: 32px; }
+.test-panel-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 22px 0 18px; border-bottom: 1px solid var(--line); }
+.test-panel-heading p { margin: 0; font-size: 1.5rem; letter-spacing: -.05em; }
+.test-panel-heading span { color: var(--muted); font-family: "DM Mono", monospace; font-size: .6rem; text-transform: uppercase; }
+.test-project-scroll { height: 560px; overflow-y: auto; padding-right: 20px; scrollbar-color: var(--coral) var(--paper); scrollbar-width: thin; }
+.test-project-card { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.test-project-image { position: relative; display: block; height: 92px; overflow: hidden; }
+.test-project-image > span { position: absolute; right: 9px; bottom: 7px; color: var(--paper); font-family: "DM Mono", monospace; font-size: .6rem; }
+.test-project-copy strong, .test-project-copy small { display: block; }
+.test-project-copy strong { font-size: 1.1rem; font-weight: 500; letter-spacing: -.04em; }
+.test-project-copy small { margin-top: 7px; color: var(--muted); font-family: "DM Mono", monospace; font-size: .56rem; text-transform: uppercase; }
+.test-project-arrow { color: var(--coral); font-size: 1.5rem; }
+@media (max-width: 700px) {
+  .test-page { padding: 50px 0 70px; }
+  .test-intro { display: block; margin-bottom: 30px; }
+  .test-intro p { margin-top: 18px; }
+  .test-layout { display: block; min-height: 0; }
+  .test-categories { padding: 0; border-right: 0; }
+  .test-category { padding: 15px 0; font-size: 1rem; }
+  .test-project-panel { padding: 0; }
+  .test-project-scroll { height: 430px; padding-right: 12px; }
+  .test-project-card { grid-template-columns: 100px 1fr auto; gap: 12px; }
+  .test-project-image { height: 70px; }
+  .test-project-copy strong { font-size: .95rem; }
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 16px; }
@@ -24,12 +61,13 @@ a { color: inherit; }
 .availability, .eyebrow, .project-index, .contact-details span { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .05em; font-size: .65rem; }
 .availability { color: var(--muted); }
 .status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #5b9b72; }
-.hero { min-height: 680px; display: flex; flex-direction: column; justify-content: space-between; padding: 76px 0 100px; }
+.hero { min-height: 275px; display: flex; flex-direction: column; justify-content: flex-start; padding: 76px 0 30px; }
 .eyebrow { color: var(--muted); margin: 0; }
 .hero-title, h1, h2, h3, p { margin-top: 0; }
 .hero-title, h1 { margin-bottom: 0; font-size: clamp(2.1rem, 5vw, 5rem); line-height: .9; letter-spacing: -.075em; font-weight: 500; }
+.hero-role { margin: 18px 0 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .75rem; line-height: 1.4; text-transform: uppercase; }
 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
-.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-top: 130px; }
 .hero-intro, .page-lede { max-width: 320px; margin: 0; color: var(--muted); line-height: 1.45; }
 .text-link { display: inline-block; text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 6px; font-size: .85rem; }
 .text-link span, .email-link span { color: var(--coral); padding-left: 12px; }
@@ -43,6 +81,7 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
 .about-home-copy p { color: var(--muted); line-height: 1.55; }
 .about-home-copy .large-copy { color: var(--ink); font-size: 1.65rem; line-height: 1.05; letter-spacing: -.05em; margin-bottom: 26px; }
 .about-home-copy .text-link { margin-top: 18px; }
+.project-buttons .projects-link { margin: 0 0 0 auto; align-self: center; }
 .project-button-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .project-button { display: block; text-decoration: none; }
 .project-button-image { display: block; position: relative; min-height: 340px; overflow: hidden; transition: filter .25s ease, transform .25s ease; }
@@ -129,7 +168,10 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
   .site-header { min-height: 74px; flex-wrap: wrap; padding: 16px 0; gap: 16px; }
   .site-nav { order: 3; width: 100%; justify-content: space-between; gap: 8px; font-size: .58rem; }
   .availability { font-size: .56rem; }
-  .hero { min-height: 610px; padding: 50px 0 70px; }
+  .hero { min-height: 215px; padding: 50px 0 25px; }
+  .hero-role { max-width: 250px; margin-top: 14px; }
+  .project-buttons .projects-link { display: block; margin: 18px 0 0; }
+  .hero-bottom { margin-top: 80px; }
   .hero-bottom, .section-heading, .page-intro { display: block; }
   .hero-intro { margin-bottom: 24px; }
   .about-home, .project-buttons { padding-bottom: 84px; }
