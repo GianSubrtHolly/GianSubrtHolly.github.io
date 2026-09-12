@@ -11,7 +11,8 @@ content:
     fields:
       - name: projects
         label: Projects
-        type: list
+        type: object
+        list: true
         fields:
           - name: title
             label: Title
@@ -20,21 +21,21 @@ content:
             label: Web address name
             type: string
             description: Lowercase name with hyphens, for example orbital-bloom
+            pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
           - name: category
             label: Category
             type: select
             options:
-              values:
-                - label: Materials
-                  value: materials
-                - label: 3D Models
-                  value: models
-                - label: Environmental Art
-                  value: environmental
-                - label: Lighting Art
-                  value: lighting
-                - label: Technical Art
-                  value: technical
+              - label: Materials
+                value: materials
+              - label: 3D Models
+                value: models
+              - label: Environmental Art
+                value: environmental
+              - label: Lighting Art
+                value: lighting
+              - label: Technical Art
+                value: technical
           - name: description
             label: Short description
             type: text
@@ -71,7 +72,8 @@ content:
             required: false
           - name: blocks
             label: Extra content boxes
-            type: list
+            type: object
+            list: true
             required: false
             fields:
               - name: label
@@ -92,19 +94,13 @@ content:
                 label: Picture description
                 type: string
                 required: false
-          - name: link
-            label: Project page link
-            type: string
-            required: false
-            description: Optional existing page. Leave blank to use the automatic project template.
           - name: image
             label: Image style
             type: select
             options:
-              values:
-                - label: Garden
-                  value: image-garden
-                - label: Ember
-                  value: image-ember
-                - label: Orbital
-                  value: image-orbit
+              - label: Garden
+                value: image-garden
+              - label: Ember
+                value: image-ember
+              - label: Orbital
+                value: image-orbit

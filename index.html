@@ -69,10 +69,40 @@
 
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
+    const imageStyles = new Set(['image-garden', 'image-ember', 'image-orbit']);
     const recentProjects = document.querySelector('#recent-projects');
+    const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
+    const localProjectImage = (value) => {
+      const image = String(value || '');
+      return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
+    };
     fetch('content/projects.json').then((response) => response.json()).then((data) => {
       if (!Array.isArray(data.projects)) return;
-      recentProjects.innerHTML = data.projects.slice(0, 3).map((project) => `<a class="project-button" href="${project.link || `project.html?slug=${encodeURIComponent(project.slug)}`}"${project.heroImage ? ` style="--project-image: url('${project.heroImage}')"` : ''}><span class="project-button-image ${project.image || 'image-orbit'}"><span class="project-button-arrow">↗</span></span><span class="project-button-label"><strong>${project.title}</strong><small>${categoryLabels[project.category] || project.category}</small></span></a>`).join('');
+      recentProjects.replaceChildren();
+      data.projects.slice(0, 3).forEach((project) => {
+        const slug = projectSlug(project.slug);
+        if (!slug) return;
+        const card = document.createElement('a');
+        card.className = 'project-button';
+        card.href = `project.html?slug=${encodeURIComponent(slug)}`;
+        const image = document.createElement('span');
+        image.className = `project-button-image ${imageStyles.has(project.image) ? project.image : 'image-orbit'}`;
+        const heroImage = localProjectImage(project.heroImage);
+        if (heroImage) image.style.setProperty('--project-image', `url("${heroImage}")`);
+        const arrow = document.createElement('span');
+        arrow.className = 'project-button-arrow';
+        arrow.textContent = '↗';
+        image.append(arrow);
+        const label = document.createElement('span');
+        label.className = 'project-button-label';
+        const title = document.createElement('strong');
+        title.textContent = String(project.title || 'Untitled project');
+        const category = document.createElement('small');
+        category.textContent = categoryLabels[project.category] || 'Projects';
+        label.append(title, category);
+        card.append(image, label);
+        recentProjects.append(card);
+      });
     }).catch(() => {});
   </script>
 

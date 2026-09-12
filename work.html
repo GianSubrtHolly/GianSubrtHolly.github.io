@@ -36,12 +36,13 @@
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
     const imageStyles = ['image-garden', 'image-ember', 'image-orbit'];
+    const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     let projects = [];
     const projectList = document.querySelector('#test-project-list');
     const categoryName = document.querySelector('#test-category-name');
     const projectCount = document.querySelector('#test-project-count');
     function showCategory(category) {
-      const categoryProjects = projects.filter((project) => project.category === category);
+      const categoryProjects = projects.filter((project) => project.category === category && projectSlug(project.slug));
       categoryName.textContent = categoryLabels[category];
       projectCount.textContent = `${categoryProjects.length} ${categoryProjects.length === 1 ? 'project' : 'projects'}`;
       projectList.replaceChildren();
@@ -55,10 +56,10 @@
       categoryProjects.forEach((project, index) => {
         const card = document.createElement('a');
         card.className = 'test-project-card';
-        card.href = project.link || `project.html?slug=${encodeURIComponent(project.slug)}`;
+        card.href = `project.html?slug=${encodeURIComponent(projectSlug(project.slug))}`;
         card.setAttribute('aria-label', `Open ${project.title} project`);
         const image = document.createElement('span');
-        image.className = `test-project-image ${project.image || imageStyles[index % imageStyles.length]}`;
+        image.className = `test-project-image ${imageStyles.includes(project.image) ? project.image : imageStyles[index % imageStyles.length]}`;
         const number = document.createElement('span');
         number.textContent = String(index + 1).padStart(2, '0');
         image.append(number);
