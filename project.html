@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project details">
+  <title>Project | Gian Subrt Holly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a></nav></header>
+  <main class="page-shell project-detail" id="project-page"><p class="project-loading">Loading project...</p></main>
+  <footer class="site-footer page-shell"><p>© 2026 Gian Subrt Holly</p><p>Based in Europe / Working worldwide</p></footer>
+  <script>
+    const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
+    const projectPage = document.querySelector('#project-page');
+    const slug = new URLSearchParams(window.location.search).get('slug');
+    const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+    const paragraphs = (value) => String(value || '').split(/\n\s*\n|\n/).filter(Boolean).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
+    function renderProject(project) {
+      document.title = `${project.title} | Gian Subrt Holly`;
+      const blocks = (project.blocks || []).map((block) => `<section class="project-content-block"><div><p class="project-index">${escapeHtml(block.label || 'Notes')}</p><h2>${escapeHtml(block.heading)}</h2></div><div class="project-block-copy">${paragraphs(block.text)}${block.image ? `<img src="${escapeHtml(block.image)}" alt="${escapeHtml(block.imageAlt || block.heading || project.title)}">` : ''}</div></section>`).join('');
+      const heroStyle = project.heroImage ? ` style="background-image: url('${escapeHtml(project.heroImage)}')"` : '';
+      projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1><div class="detail-hero ${escapeHtml(project.image || '')}"${heroStyle} role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"></div><div class="detail-grid"><div><p class="project-index">${escapeHtml(project.overviewLabel || 'Overview')}</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${blocks}<a class="back-link" href="index.html">← Back to home</a>`;
+    }
+    fetch('content/projects.json').then((response) => response.json()).then((data) => {
+      const project = (data.projects || []).find((entry) => entry.slug === slug);
+      if (project) renderProject(project);
+      else projectPage.innerHTML = '<h1>Project not found.</h1><a class="back-link" href="index.html">← Back to home</a>';
+    }).catch(() => { projectPage.innerHTML = '<h1>Project unavailable.</h1><a class="back-link" href="index.html">← Back to home</a>'; });
+  </script>
+</body>
+</html>

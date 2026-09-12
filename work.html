@@ -53,12 +53,10 @@
         return;
       }
       categoryProjects.forEach((project, index) => {
-        const card = document.createElement(project.link ? 'a' : 'div');
+        const card = document.createElement('a');
         card.className = 'test-project-card';
-        if (project.link) {
-          card.href = project.link;
-          card.setAttribute('aria-label', `Open ${project.title} project`);
-        }
+        card.href = project.link || `project.html?slug=${encodeURIComponent(project.slug)}`;
+        card.setAttribute('aria-label', `Open ${project.title} project`);
         const image = document.createElement('span');
         image.className = `test-project-image ${project.image || imageStyles[index % imageStyles.length]}`;
         const number = document.createElement('span');
@@ -72,12 +70,10 @@
         description.textContent = project.description || categoryLabels[category];
         copy.append(title, description);
         card.append(image, copy);
-        if (project.link) {
-          const arrow = document.createElement('span');
-          arrow.className = 'test-project-arrow';
-          arrow.textContent = '↗';
-          card.append(arrow);
-        }
+        const arrow = document.createElement('span');
+        arrow.className = 'test-project-arrow';
+        arrow.textContent = '↗';
+        card.append(arrow);
         projectList.append(card);
       });
     }

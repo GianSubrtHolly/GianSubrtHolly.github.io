@@ -2,24 +2,46 @@
   "projects": [
     {
       "title": "Orbital Bloom",
+      "slug": "orbital-bloom",
       "category": "models",
       "description": "System-led visual design for an optimistic science-fiction garden in the sky.",
-      "link": "project-orbital-bloom.html",
       "image": "image-orbit"
+      ,"titleLine": "Bloom.",
+      "overviewLabel": "Overview",
+      "lede": "System-led visual design for an optimistic science-fiction garden in the sky.",
+      "mainText": "Orbital Bloom is an art direction study for a future where growing things is a collective act. The work focused on defining a modular visual system that could move between intimate plant life and enormous orbital structures.\n\nI created the colour script, shape language, environment keys and reference framework for the project.",
+      "role": "Art direction\nEnvironment design",
+      "tools": "Photoshop\nBlender",
+      "blocks": []
     },
     {
       "title": "Liminal Gardens",
+      "slug": "liminal-gardens",
       "category": "environmental",
       "description": "A quiet exploration of overgrown architecture, soft light and the stories left behind.",
-      "link": "project-liminal-gardens.html",
       "image": "image-garden"
+      ,"titleLine": "Gardens.",
+      "overviewLabel": "Overview",
+      "lede": "A quiet exploration of overgrown architecture, soft light and the stories left behind.",
+      "mainText": "Liminal Gardens is a visual development project about places that have been reclaimed by time. The brief was to create an environment that felt both welcoming and slightly unknowable, using a restrained palette and strong architectural silhouettes.",
+      "role": "Environment artist\nVisual development",
+      "tools": "Photoshop\nBlender",
+      "blocks": []
     },
     {
       "title": "Emberline",
+      "slug": "emberline",
       "category": "lighting",
       "description": "Shapes, silhouettes and a language of heat for a world at the edge of collapse.",
-      "link": "project-emberline.html",
       "image": "image-ember"
+      ,"titleLine": "in the heat.",
+      "overviewLabel": "Overview",
+      "lede": "Shapes, silhouettes and a language of heat for a world at the edge of collapse.",
+      "overviewLabel": "Overview",
+      "mainText": "Emberline began with a question: how can a landscape communicate danger before a single character appears? I explored compressed compositions, hot colour accents and heavy atmospheric perspective to make the environment feel active and unstable.",
+      "role": "Visual development\nConcept artist",
+      "tools": "Photoshop\nProcreate",
+      "blocks": []
     }
   ]
 }

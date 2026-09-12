@@ -49,7 +49,7 @@
         <h2 id="project-buttons-title">Recent Projects</h2>
         <a class="text-link projects-link" href="work.html">To Projects <span>↗</span></a>
       </div>
-      <div class="project-button-grid">
+      <div class="project-button-grid" id="recent-projects">
         <a class="project-button" href="project-liminal-gardens.html">
           <span class="project-button-image image-garden"><span class="project-button-arrow">↗</span></span>
           <span class="project-button-label"><strong>Liminal Gardens</strong><small>Environmental Art</small></span>
@@ -66,6 +66,15 @@
     </section>
 
   </main>
+
+  <script>
+    const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
+    const recentProjects = document.querySelector('#recent-projects');
+    fetch('content/projects.json').then((response) => response.json()).then((data) => {
+      if (!Array.isArray(data.projects)) return;
+      recentProjects.innerHTML = data.projects.slice(0, 3).map((project) => `<a class="project-button" href="${project.link || `project.html?slug=${encodeURIComponent(project.slug)}`}"${project.heroImage ? ` style="--project-image: url('${project.heroImage}')"` : ''}><span class="project-button-image ${project.image || 'image-orbit'}"><span class="project-button-arrow">↗</span></span><span class="project-button-label"><strong>${project.title}</strong><small>${categoryLabels[project.category] || project.category}</small></span></a>`).join('');
+    }).catch(() => {});
+  </script>
 
   <footer class="site-footer page-shell">
     <p>© 2026 Gian Subrt Holly</p>

@@ -16,6 +16,10 @@ content:
           - name: title
             label: Title
             type: string
+          - name: slug
+            label: Web address name
+            type: string
+            description: Lowercase name with hyphens, for example orbital-bloom
           - name: category
             label: Category
             type: select
@@ -35,11 +39,64 @@ content:
             label: Short description
             type: text
             required: false
+          - name: titleLine
+            label: Italic title line
+            type: string
+            required: false
+          - name: overviewLabel
+            label: Overview label
+            type: string
+            required: false
+          - name: lede
+            label: Large introductory text
+            type: text
+          - name: heroImage
+            label: Large header image
+            type: image
+            required: false
+          - name: heroAlt
+            label: Header image description
+            type: string
+            required: false
+          - name: mainText
+            label: Main text
+            type: text
+          - name: role
+            label: Role
+            type: text
+            required: false
+          - name: tools
+            label: Tools
+            type: text
+            required: false
+          - name: blocks
+            label: Extra content boxes
+            type: list
+            required: false
+            fields:
+              - name: label
+                label: Small label
+                type: string
+                required: false
+              - name: heading
+                label: Box heading
+                type: string
+              - name: text
+                label: Explanation
+                type: text
+              - name: image
+                label: Picture
+                type: image
+                required: false
+              - name: imageAlt
+                label: Picture description
+                type: string
+                required: false
           - name: link
             label: Project page link
             type: string
             required: false
-            description: Optional, for example project-orbital-bloom.html
+            description: Optional existing page. Leave blank to use the automatic project template.
           - name: image
             label: Image style
             type: select

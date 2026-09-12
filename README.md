@@ -30,3 +30,5 @@ This site can stay on GitHub Pages while projects are edited through [Pages CMS]
 4. Add a project, choose its category, fill in the description, and save.
 
 The editor updates `content/projects.json`; the Projects page reads that file automatically. GitHub Pages will publish the update after the commit is pushed.
+
+Each project can include a large header image, title line, overview label, lede, main text, role, tools, and any number of extra content boxes. Each box can contain an explanation and an optional picture. New projects automatically appear in Recent Projects and open on the reusable project template.
