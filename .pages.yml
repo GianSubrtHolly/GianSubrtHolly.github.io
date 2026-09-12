@@ -3,104 +3,179 @@ media:
   output: /assets/images/projects
 
 content:
-  - name: project-library
-    label: Project library
-    type: file
-    path: content/projects.json
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
     format: json
+    filename: "{slug}.json"
+    view:
+      layout: tree
+      primary: title
+      fields: [title, category]
+      sort: [title]
     fields:
-      - name: projects
-        label: Projects
-        type: object
-        list: true
-        fields:
-          - name: title
-            label: Title
-            type: string
-          - name: slug
-            label: Web address name
-            type: string
-            description: Lowercase name with hyphens, for example orbital-bloom
-            pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
-          - name: category
-            label: Category
-            type: select
-            options:
-              - label: Materials
-                value: materials
-              - label: 3D Models
-                value: models
-              - label: Environmental Art
-                value: environmental
-              - label: Lighting Art
-                value: lighting
-              - label: Technical Art
-                value: technical
-          - name: description
-            label: Short description
-            type: text
-            required: false
-          - name: titleLine
-            label: Italic title line
-            type: string
-            required: false
-          - name: overviewLabel
-            label: Overview label
-            type: string
-            required: false
-          - name: lede
-            label: Large introductory text
-            type: text
-          - name: heroImage
-            label: Large header image
-            type: image
-            required: false
-          - name: heroAlt
-            label: Header image description
-            type: string
-            required: false
-          - name: mainText
-            label: Main text
-            type: text
-          - name: role
-            label: Role
-            type: text
-            required: false
-          - name: tools
-            label: Tools
-            type: text
-            required: false
-          - name: blocks
-            label: Extra content boxes
-            type: object
-            list: true
-            required: false
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Web address name
+        type: string
+        required: true
+        pattern:
+          regex: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          message: Use lowercase letters, numbers, and hyphens only.
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          - label: Materials
+            value: materials
+          - label: 3D Models
+            value: models
+          - label: Environmental Art
+            value: environmental
+          - label: Lighting Art
+            value: lighting
+          - label: Technical Art
+            value: technical
+      - name: description
+        label: Short description
+        type: text
+        required: true
+      - name: titleLine
+        label: Italic title line
+        type: string
+        required: false
+      - name: heroImage
+        label: Header image
+        type: image
+        required: true
+      - name: heroAlt
+        label: Header image description
+        type: string
+        required: true
+      - name: lede
+        label: Large introductory text
+        type: text
+        required: true
+      - name: mainText
+        label: Main text
+        type: text
+        required: true
+      - name: role
+        label: Role
+        type: text
+        required: false
+      - name: tools
+        label: Tools
+        type: text
+        required: false
+      - name: image
+        label: Card image style
+        type: select
+        required: true
+        options:
+          - label: Garden
+            value: image-garden
+          - label: Ember
+            value: image-ember
+          - label: Orbital
+            value: image-orbit
+      - name: sections
+        label: Page sections
+        type: block
+        list:
+          collapsible: true
+          summary: "{{block.heading}}"
+        blocks:
+          - name: text
+            label: Text
             fields:
-              - name: label
-                label: Small label
+              - name: heading
+                label: Section heading
                 type: string
                 required: false
-              - name: heading
-                label: Box heading
-                type: string
-              - name: text
-                label: Explanation
+              - name: body
+                label: Text
                 type: text
+                required: true
+          - name: subheader
+            label: Subheader
+            fields:
+              - name: heading
+                label: Heading
+                type: string
+                required: true
+              - name: body
+                label: Supporting text
+                type: text
+                required: false
+          - name: image
+            label: Image
+            fields:
               - name: image
                 label: Picture
                 type: image
-                required: false
-              - name: imageAlt
+                required: true
+              - name: alt
                 label: Picture description
                 type: string
+                required: true
+              - name: caption
+                label: Caption
+                type: string
                 required: false
-          - name: image
-            label: Image style
-            type: select
-            options:
-              - label: Garden
-                value: image-garden
-              - label: Ember
-                value: image-ember
-              - label: Orbital
-                value: image-orbit
+          - name: image-link
+            label: Image with link
+            fields:
+              - name: image
+                label: Picture
+                type: image
+                required: true
+              - name: alt
+                label: Picture description
+                type: string
+                required: true
+              - name: url
+                label: Link URL
+                type: string
+                required: true
+                pattern:
+                  regex: '^(https://|/|[a-z0-9-]+\\.html(?:$|[?#]))'
+                  message: Use an HTTPS link or a local page.
+              - name: caption
+                label: Caption
+                type: string
+                required: false
+          - name: video
+            label: Video
+            fields:
+              - name: video
+                label: Video file
+                type: file
+                required: true
+              - name: caption
+                label: Caption
+                type: string
+                required: false
+          - name: embed
+            label: Embed
+            fields:
+              - name: url
+                label: Embed URL
+                type: string
+                required: true
+                pattern:
+                  regex: '^https://'
+                  message: Embeds must use HTTPS.
+              - name: title
+                label: Embed title
+                type: string
+                required: true
+              - name: height
+                label: Height
+                type: number
+                required: false

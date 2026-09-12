@@ -25,17 +25,44 @@
       const image = String(value || '');
       return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
     };
+    const localProjectVideo = (value) => {
+      const video = String(value || '');
+      return /^\/?assets\/videos\/[A-Za-z0-9._/-]+$/.test(video) && !video.includes('..') ? `/${video.replace(/^\//, '')}` : '';
+    };
+    const safeEmbedUrl = (value) => /^https:\/\//.test(String(value || '')) ? String(value) : '';
+    const safeLinkUrl = (value) => /^(https:\/\/|\/?[A-Za-z0-9._/-]+\.html(?:[?#].*)?$)/.test(String(value || '')) ? String(value) : '';
     const paragraphs = (value) => String(value || '').split(/\n\s*\n|\n/).filter(Boolean).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
+    const renderSections = (sections, project) => (sections || []).map((section) => {
+      const label = escapeHtml(section.type || 'Section');
+      if (section.type === 'subheader') return `<section class="project-content-block project-subheader"><div><p class="project-index">${label}</p><h2>${escapeHtml(section.heading)}</h2></div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
+      if (section.type === 'text') return `<section class="project-content-block"><div><p class="project-index">${label}</p>${section.heading ? `<h2>${escapeHtml(section.heading)}</h2>` : ''}</div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
+      if (section.type === 'image') {
+        const image = localProjectImage(section.image);
+        return image ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}">${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+      }
+      if (section.type === 'image-link') {
+        const image = localProjectImage(section.image);
+        const url = safeLinkUrl(section.url);
+        return image && url ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><a href="${escapeHtml(url)}" rel="noopener noreferrer"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}"></a>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+      }
+      if (section.type === 'video') {
+        const video = localProjectVideo(section.video);
+        return video ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><video controls preload="metadata"><source src="${escapeHtml(video)}"></video>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+      }
+      if (section.type === 'embed') {
+        const url = safeEmbedUrl(section.url);
+        const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 420;
+        return url ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" height="${height}" loading="lazy" referrerpolicy="no-referrer"></iframe></div></section>` : '';
+      }
+      return '';
+    }).join('');
     function renderProject(project) {
       document.title = `${project.title} | Gian Subrt Holly`;
-      const blocks = (project.blocks || []).map((block) => {
-        const blockImage = localProjectImage(block.image);
-        return `<section class="project-content-block"><div><p class="project-index">${escapeHtml(block.label || 'Notes')}</p><h2>${escapeHtml(block.heading)}</h2></div><div class="project-block-copy">${paragraphs(block.text)}${blockImage ? `<img src="${escapeHtml(blockImage)}" alt="${escapeHtml(block.imageAlt || block.heading || project.title)}">` : ''}</div></section>`;
-      }).join('');
+      const sections = renderSections(project.sections || project.blocks, project);
       const heroImage = localProjectImage(project.heroImage);
       const heroStyle = heroImage ? ` style="background-image: url('${escapeHtml(heroImage)}')"` : '';
       const imageClass = imageStyles.has(project.image) ? project.image : '';
-      projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1><div class="detail-hero ${imageClass}"${heroStyle} role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"></div><div class="detail-grid"><div><p class="project-index">${escapeHtml(project.overviewLabel || 'Overview')}</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${blocks}<a class="back-link" href="index.html">← Back to home</a>`;
+      projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1><div class="detail-hero ${imageClass}"${heroStyle} role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"></div><div class="detail-grid"><div><p class="project-index">Overview</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${sections}<a class="back-link" href="index.html">← Back to home</a>`;
     }
     fetch('content/projects.json').then((response) => response.json()).then((data) => {
       const project = (data.projects || []).find((entry) => entry.slug === validSlug);
