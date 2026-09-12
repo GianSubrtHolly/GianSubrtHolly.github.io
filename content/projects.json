@@ -31,6 +31,20 @@
       "sections": []
     },
     {
+      "title": "Man I love Materials",
+      "slug": "materials",
+      "category": "materials",
+      "description": "oh god materials",
+      "titleLine": "please please please",
+      "heroImage": "/assets/images/projects/ZingaSit.png",
+      "heroAlt": "wowwowowowow",
+      "lede": "I LOVE TESTING MATERIALS",
+      "mainText": "PLEASEEEE",
+      "role": "artist\nCOLLECTER\nLOver",
+      "tools": "materials \nn\nshit",
+      "image": "image-orbit"
+    },
+    {
       "title": "Orbital Bloom",
       "slug": "orbital-bloom",
       "category": "models",
