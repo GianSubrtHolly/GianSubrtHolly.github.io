@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="site-header">
@@ -65,7 +65,20 @@
         const image = document.createElement('span');
         image.className = `test-project-image ${imageStyles.includes(project.image) ? project.image : imageStyles[index % imageStyles.length]}`;
         const cardImage = localProjectImage(project.cardImage);
-        if (cardImage) image.style.setProperty('--project-image', `url("${cardImage}")`);
+        if (cardImage) {
+          image.classList.add('has-upload');
+          image.style.background = '#242725';
+          image.style.backgroundImage = 'none';
+          const uploadedImage = document.createElement('img');
+          uploadedImage.src = cardImage;
+          uploadedImage.alt = `${String(project.title || 'Project')} preview`;
+          uploadedImage.style.position = 'absolute';
+          uploadedImage.style.inset = '0';
+          uploadedImage.style.width = '100%';
+          uploadedImage.style.height = '100%';
+          uploadedImage.style.objectFit = 'contain';
+          image.append(uploadedImage);
+        }
         const number = document.createElement('span');
         number.textContent = String(index + 1).padStart(2, '0');
         image.append(number);

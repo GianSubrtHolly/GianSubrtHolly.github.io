@@ -28,7 +28,8 @@
 .test-project-card { display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
 .test-project-image { position: relative; display: block; height: 92px; overflow: hidden; }
 .test-project-image > span { position: absolute; right: 9px; bottom: 7px; color: var(--paper); font-family: "DM Mono", monospace; font-size: .6rem; }
-.test-project-image[style] { background-color: #242725; background-image: var(--project-image); background-position: center; background-repeat: no-repeat; background-size: contain; }
+.test-project-image.has-upload { background: #242725 !important; background-image: none !important; }
+.test-project-image > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
 .test-project-copy strong, .test-project-copy small { display: block; }
 .test-project-copy strong { font-size: 1.1rem; font-weight: 500; letter-spacing: -.04em; }
 .test-project-copy small { margin-top: 7px; color: var(--muted); font-family: "DM Mono", monospace; font-size: .56rem; text-transform: uppercase; }
@@ -40,7 +41,8 @@
 .project-block-copy video, .project-block-copy iframe { display: block; width: 100%; margin-top: 28px; border: 0; background: #242725; }
 .project-block-copy video { max-height: 520px; }
 .media-caption { margin: 12px 0 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .65rem; text-transform: uppercase; }
-.project-button-image[style] { background-color: #242725; background-image: var(--project-image); background-position: center; background-repeat: no-repeat; background-size: contain; }
+.project-button-image.has-upload { background: #242725 !important; background-image: none !important; }
+.project-button-image > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
 .project-loading { color: var(--muted); font-family: "DM Mono", monospace; text-transform: uppercase; font-size: .65rem; }
 @media (max-width: 700px) {
   .test-page { padding: 50px 0 70px; }
