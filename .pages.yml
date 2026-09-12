@@ -1,0 +1,53 @@
+media:
+  input: assets/images/projects
+  output: /assets/images/projects
+
+content:
+  - name: project-library
+    label: Project library
+    type: file
+    path: content/projects.json
+    format: json
+    fields:
+      - name: projects
+        label: Projects
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: category
+            label: Category
+            type: select
+            options:
+              values:
+                - label: Materials
+                  value: materials
+                - label: 3D Models
+                  value: models
+                - label: Environmental Art
+                  value: environmental
+                - label: Lighting Art
+                  value: lighting
+                - label: Technical Art
+                  value: technical
+          - name: description
+            label: Short description
+            type: text
+            required: false
+          - name: link
+            label: Project page link
+            type: string
+            required: false
+            description: Optional, for example project-orbital-bloom.html
+          - name: image
+            label: Image style
+            type: select
+            options:
+              values:
+                - label: Garden
+                  value: image-garden
+                - label: Ember
+                  value: image-ember
+                - label: Orbital
+                  value: image-orbit

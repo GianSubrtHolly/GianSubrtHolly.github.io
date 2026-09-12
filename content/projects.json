@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "title": "Orbital Bloom",
+      "category": "models",
+      "description": "System-led visual design for an optimistic science-fiction garden in the sky.",
+      "link": "project-orbital-bloom.html",
+      "image": "image-orbit"
+    },
+    {
+      "title": "Liminal Gardens",
+      "category": "environmental",
+      "description": "A quiet exploration of overgrown architecture, soft light and the stories left behind.",
+      "link": "project-liminal-gardens.html",
+      "image": "image-garden"
+    },
+    {
+      "title": "Emberline",
+      "category": "lighting",
+      "description": "Shapes, silhouettes and a language of heat for a world at the edge of collapse.",
+      "link": "project-emberline.html",
+      "image": "image-ember"
+    }
+  ]
+}

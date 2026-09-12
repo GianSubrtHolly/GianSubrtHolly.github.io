@@ -14,43 +14,72 @@
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a>
+      <a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a>
     </nav>
   </header>
   <main class="page-shell test-page">
     <div class="test-intro"><h1>Projects</h1><p>Choose a category to load its projects beside it.</p></div>
     <div class="test-layout">
       <aside class="test-categories" aria-label="Project categories">
-        <button class="test-category is-active" type="button" data-category="materials">Materials <span>↗</span></button>
-        <button class="test-category" type="button" data-category="models">3D Models <span>↗</span></button>
+        <button class="test-category" type="button" data-category="materials">Materials <span>↗</span></button>
+        <button class="test-category is-active" type="button" data-category="models">3D Models <span>↗</span></button>
         <button class="test-category" type="button" data-category="environmental">Environmental Art <span>↗</span></button>
         <button class="test-category" type="button" data-category="lighting">Lighting Art <span>↗</span></button>
         <button class="test-category" type="button" data-category="technical">Technical Art <span>↗</span></button>
       </aside>
       <section class="test-project-panel" aria-live="polite" aria-label="Projects in selected category">
-        <div class="test-panel-heading"><p id="test-category-name">Materials</p><span id="test-project-count">5 projects</span></div>
+        <div class="test-panel-heading"><p id="test-category-name">3D Models</p><span id="test-project-count">1 project</span></div>
         <div class="test-project-scroll" id="test-project-list"></div>
       </section>
     </div>
   </main>
   <script>
-    const proxyProjects = {
-      materials: ['Material Study 01', 'Surface Library', 'Weathered Metal', 'Glass Experiments', 'Organic Shaders'],
-      models: ['Orbital Bloom', 'Modular Shelter', 'Orbital Prop Set', 'Character Blockout', 'Garden Machinery', 'Architectural Kit'],
-      environmental: ['Liminal Gardens', 'Moss Valley', 'The Quiet Station', 'Flooded Courtyard', 'Borderlands', 'Overgrown Passage'],
-      lighting: ['Emberline', 'Blue Hour Study', 'Ember Interior', 'Moonlit Platform', 'Volumetric Forest', 'Neon Rain'],
-      technical: ['Shader Toolkit', 'World Builder', 'Lighting Pipeline', 'Procedural Foliage', 'Asset Workflow']
-    };
-    const projectLinks = { 'Liminal Gardens': 'project-liminal-gardens.html', Emberline: 'project-emberline.html', 'Orbital Bloom': 'project-orbital-bloom.html' };
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
     const imageStyles = ['image-garden', 'image-ember', 'image-orbit'];
+    let projects = [];
     const projectList = document.querySelector('#test-project-list');
     const categoryName = document.querySelector('#test-category-name');
     const projectCount = document.querySelector('#test-project-count');
     function showCategory(category) {
+      const categoryProjects = projects.filter((project) => project.category === category);
       categoryName.textContent = categoryLabels[category];
-      projectCount.textContent = `${proxyProjects[category].length} projects`;
-      projectList.innerHTML = proxyProjects[category].map((name, index) => `<a class="test-project-card" href="${projectLinks[name] || '#'}" aria-label="Open ${name} project"><span class="test-project-image ${imageStyles[index % imageStyles.length]}"><span>${String(index + 1).padStart(2, '0')}</span></span><span class="test-project-copy"><strong>${name}</strong><small>${categoryLabels[category]}${projectLinks[name] ? '' : ' / proxy project'}</small></span><span class="test-project-arrow">↗</span></a>`).join('');
+      projectCount.textContent = `${categoryProjects.length} ${categoryProjects.length === 1 ? 'project' : 'projects'}`;
+      projectList.replaceChildren();
+      if (!categoryProjects.length) {
+        const emptyState = document.createElement('div');
+        emptyState.className = 'category-empty';
+        emptyState.innerHTML = '<span>No published projects yet</span><span>+</span>';
+        projectList.append(emptyState);
+        return;
+      }
+      categoryProjects.forEach((project, index) => {
+        const card = document.createElement(project.link ? 'a' : 'div');
+        card.className = 'test-project-card';
+        if (project.link) {
+          card.href = project.link;
+          card.setAttribute('aria-label', `Open ${project.title} project`);
+        }
+        const image = document.createElement('span');
+        image.className = `test-project-image ${project.image || imageStyles[index % imageStyles.length]}`;
+        const number = document.createElement('span');
+        number.textContent = String(index + 1).padStart(2, '0');
+        image.append(number);
+        const copy = document.createElement('span');
+        copy.className = 'test-project-copy';
+        const title = document.createElement('strong');
+        title.textContent = project.title;
+        const description = document.createElement('small');
+        description.textContent = project.description || categoryLabels[category];
+        copy.append(title, description);
+        card.append(image, copy);
+        if (project.link) {
+          const arrow = document.createElement('span');
+          arrow.className = 'test-project-arrow';
+          arrow.textContent = '↗';
+          card.append(arrow);
+        }
+        projectList.append(card);
+      });
     }
     document.querySelectorAll('.test-category').forEach((button) => {
       button.addEventListener('click', () => {
@@ -59,7 +88,13 @@
         showCategory(button.dataset.category);
       });
     });
-    showCategory('materials');
+    fetch('content/projects.json')
+      .then((response) => response.json())
+      .then((data) => {
+        projects = Array.isArray(data.projects) ? data.projects : [];
+        showCategory('models');
+      })
+      .catch(() => showCategory('models'));
   </script>
   <footer class="site-footer page-shell"><p>© 2026 Gian Subrt Holly</p><p>Based in Europe / Working worldwide</p></footer>
 </body>
