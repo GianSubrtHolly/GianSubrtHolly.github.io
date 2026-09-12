@@ -34,26 +34,25 @@
     const paragraphs = (value) => String(value || '').split(/\n\s*\n|\n/).filter(Boolean).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
     const renderSections = (sections, project) => (sections || []).map((section) => {
       const sectionType = section.type || section._block;
-      const label = escapeHtml(sectionType || 'Section');
-      if (sectionType === 'subheader') return `<section class="project-content-block project-subheader"><div><p class="project-index">${label}</p><h2>${escapeHtml(section.heading)}</h2></div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
-      if (sectionType === 'text') return `<section class="project-content-block"><div><p class="project-index">${label}</p>${section.heading ? `<h2>${escapeHtml(section.heading)}</h2>` : ''}</div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
+      if (sectionType === 'subheader') return `<section class="project-content-block project-subheader"><div><h2>${escapeHtml(section.heading)}</h2></div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
+      if (sectionType === 'text') return `<section class="project-content-block"><div>${section.heading ? `<h2>${escapeHtml(section.heading)}</h2>` : ''}</div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
       if (sectionType === 'image') {
         const image = localProjectImage(section.image);
-        return image ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}">${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+        return image ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}">${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
       if (sectionType === 'image-link') {
         const image = localProjectImage(section.image);
         const url = safeLinkUrl(section.url);
-        return image && url ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><a href="${escapeHtml(url)}" rel="noopener noreferrer"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}"></a>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+        return image && url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><a href="${escapeHtml(url)}" rel="noopener noreferrer"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}"></a>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
       if (sectionType === 'video') {
         const video = localProjectVideo(section.video);
-        return video ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><video controls preload="metadata"><source src="${escapeHtml(video)}"></video>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+        return video ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><video controls preload="metadata"><source src="${escapeHtml(video)}"></video>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
       if (sectionType === 'embed') {
         const url = safeEmbedUrl(section.url);
         const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 420;
-        return url ? `<section class="project-content-block project-media-block"><div><p class="project-index">${label}</p></div><div class="project-block-copy"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" height="${height}" loading="lazy" referrerpolicy="no-referrer"></iframe></div></section>` : '';
+        return url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" height="${height}" loading="lazy" referrerpolicy="no-referrer"></iframe></div></section>` : '';
       }
       return '';
     }).join('');
