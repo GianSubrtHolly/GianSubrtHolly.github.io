@@ -11,5 +11,34 @@
   "role": "artist\nCOLLECTER\nLOver",
   "tools": "materials \nn\nshit",
   "image": "image-orbit",
-  "cardImage": "/assets/images/projects/ZingaSit-1.png"
+  "cardImage": "/assets/images/projects/ZingaSit-1.png",
+  "sections": [
+    {
+      "_block": "subheader",
+      "heading": "woah",
+      "body": "materials"
+    },
+    {
+      "_block": "subheader",
+      "heading": "wo",
+      "body": "fe"
+    },
+    {
+      "_block": "text",
+      "heading": "gf",
+      "body": "gf"
+    },
+    {
+      "_block": "image",
+      "image": "/assets/images/projects/ZingaSit.png",
+      "alt": "poh",
+      "caption": "ve"
+    },
+    {
+      "_block": "embed",
+      "url": "https://github.com/hunvreus/pagescms/issues/284",
+      "title": "wo",
+      "height": 197
+    }
+  ]
 }
