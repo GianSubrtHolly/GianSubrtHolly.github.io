@@ -9,6 +9,15 @@ content:
     path: content/projects
     format: json
     filename: "{slug}.json"
+    actions:
+      - name: refresh-project-index
+        label: Refresh project index
+        workflow: build-project-index.yml
+        scope: collection
+        confirm:
+          title: Refresh project index?
+          message: Recheck all project files and update the public project listings.
+          button: Refresh
     view:
       layout: tree
       primary: title
