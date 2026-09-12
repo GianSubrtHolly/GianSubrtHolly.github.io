@@ -8,6 +8,11 @@ on:
       - 'scripts/build-project-index.mjs'
       - '.github/workflows/build-project-index.yml'
   workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS action context
+        required: false
+        type: string
 
 permissions:
   contents: write
