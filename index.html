@@ -87,8 +87,8 @@
         card.href = `project.html?slug=${encodeURIComponent(slug)}`;
         const image = document.createElement('span');
         image.className = `project-button-image ${imageStyles.has(project.image) ? project.image : 'image-orbit'}`;
-        const heroImage = localProjectImage(project.heroImage);
-        if (heroImage) image.style.setProperty('--project-image', `url("${heroImage}")`);
+        const cardImage = localProjectImage(project.cardImage);
+        if (cardImage) image.style.setProperty('--project-image', `url("${cardImage}")`);
         const arrow = document.createElement('span');
         arrow.className = 'project-button-arrow';
         arrow.textContent = '↗';

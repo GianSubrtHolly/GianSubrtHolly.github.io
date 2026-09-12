@@ -60,9 +60,12 @@
       document.title = `${project.title} | Gian Subrt Holly`;
       const sections = renderSections(project.sections || project.blocks, project);
       const heroImage = localProjectImage(project.heroImage);
-      const heroStyle = heroImage ? ` style="background-image: url('${escapeHtml(heroImage)}')"` : '';
+      const heroWidth = Number.isInteger(Number(project.heroWidth)) && Number(project.heroWidth) > 0 ? Math.min(Number(project.heroWidth), 2400) : '';
+      const heroHeight = Number.isInteger(Number(project.heroHeight)) && Number(project.heroHeight) > 0 ? Math.min(Number(project.heroHeight), 1600) : '';
+      const heroSize = heroWidth || heroHeight ? ` style="${heroWidth ? `width: ${heroWidth}px;` : ''}${heroHeight ? `height: ${heroHeight}px;` : ''}"` : '';
       const imageClass = imageStyles.has(project.image) ? project.image : '';
-      projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1><div class="detail-hero ${imageClass}"${heroStyle} role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"></div><div class="detail-grid"><div><p class="project-index">Overview</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${sections}<a class="back-link" href="index.html">← Back to home</a>`;
+      const heroMarkup = heroImage ? `<div class="detail-hero ${imageClass} has-image${heroSize ? ' custom-size' : ''}"${heroSize} role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"><img src="${escapeHtml(heroImage)}" alt="${escapeHtml(project.heroAlt || project.title)}"></div>` : `<div class="detail-hero ${imageClass}" role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"></div>`;
+      projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1>${heroMarkup}<div class="detail-grid"><div><p class="project-index">Overview</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${sections}<a class="back-link" href="index.html">← Back to home</a>`;
     }
     fetch('content/projects.json').then((response) => response.json()).then((data) => {
       const project = (data.projects || []).find((entry) => entry.slug === validSlug);

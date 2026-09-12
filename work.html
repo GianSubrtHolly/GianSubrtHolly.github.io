@@ -21,14 +21,14 @@
     <div class="test-intro"><h1>Projects</h1><p>Choose a category to load its projects beside it.</p></div>
     <div class="test-layout">
       <aside class="test-categories" aria-label="Project categories">
-        <button class="test-category" type="button" data-category="materials">Materials <span>↗</span></button>
-        <button class="test-category is-active" type="button" data-category="models">3D Models <span>↗</span></button>
+        <button class="test-category is-active" type="button" data-category="materials">Materials <span>↗</span></button>
+        <button class="test-category" type="button" data-category="models">3D Models <span>↗</span></button>
         <button class="test-category" type="button" data-category="environmental">Environmental Art <span>↗</span></button>
         <button class="test-category" type="button" data-category="lighting">Lighting Art <span>↗</span></button>
         <button class="test-category" type="button" data-category="technical">Technical Art <span>↗</span></button>
       </aside>
       <section class="test-project-panel" aria-live="polite" aria-label="Projects in selected category">
-        <div class="test-panel-heading"><p id="test-category-name">3D Models</p><span id="test-project-count">1 project</span></div>
+        <div class="test-panel-heading"><p id="test-category-name">Materials</p><span id="test-project-count">0 projects</span></div>
         <div class="test-project-scroll" id="test-project-list"></div>
       </section>
     </div>
@@ -36,6 +36,10 @@
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
     const imageStyles = ['image-garden', 'image-ember', 'image-orbit'];
+    const localProjectImage = (value) => {
+      const image = String(value || '');
+      return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
+    };
     const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     let projects = [];
     const projectList = document.querySelector('#test-project-list');
@@ -60,6 +64,8 @@
         card.setAttribute('aria-label', `Open ${project.title} project`);
         const image = document.createElement('span');
         image.className = `test-project-image ${imageStyles.includes(project.image) ? project.image : imageStyles[index % imageStyles.length]}`;
+        const cardImage = localProjectImage(project.cardImage);
+        if (cardImage) image.style.setProperty('--project-image', `url("${cardImage}")`);
         const number = document.createElement('span');
         number.textContent = String(index + 1).padStart(2, '0');
         image.append(number);
@@ -89,9 +95,9 @@
       .then((response) => response.json())
       .then((data) => {
         projects = Array.isArray(data.projects) ? data.projects : [];
-        showCategory('models');
+        showCategory('materials');
       })
-      .catch(() => showCategory('models'));
+      .catch(() => showCategory('materials'));
   </script>
   <footer class="site-footer page-shell"><p>© 2026 Gian Subrt Holly</p><p>Based in Europe / Working worldwide</p></footer>
 </body>

@@ -58,6 +58,16 @@ content:
         label: Header image description
         type: string
         required: true
+      - name: heroWidth
+        label: Header image width in pixels
+        type: number
+        required: false
+        description: Optional. Leave blank to use the default responsive size.
+      - name: heroHeight
+        label: Header image height in pixels
+        type: number
+        required: false
+        description: Optional. Leave blank to use the default responsive size.
       - name: lede
         label: Large introductory text
         type: text
@@ -86,6 +96,11 @@ content:
               value: image-ember
             - label: Orbital
               value: image-orbit
+      - name: cardImage
+        label: Card preview image
+        type: image
+        required: false
+        description: Optional upload. If blank, the selected card image style is used.
       - name: sections
         label: Page sections
         type: block
