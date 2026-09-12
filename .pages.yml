@@ -31,16 +31,17 @@ content:
         type: select
         required: true
         options:
-          - label: Materials
-            value: materials
-          - label: 3D Models
-            value: models
-          - label: Environmental Art
-            value: environmental
-          - label: Lighting Art
-            value: lighting
-          - label: Technical Art
-            value: technical
+          values:
+            - label: Materials
+              value: materials
+            - label: 3D Models
+              value: models
+            - label: Environmental Art
+              value: environmental
+            - label: Lighting Art
+              value: lighting
+            - label: Technical Art
+              value: technical
       - name: description
         label: Short description
         type: text
@@ -78,12 +79,13 @@ content:
         type: select
         required: true
         options:
-          - label: Garden
-            value: image-garden
-          - label: Ember
-            value: image-ember
-          - label: Orbital
-            value: image-orbit
+          values:
+            - label: Garden
+              value: image-garden
+            - label: Ember
+              value: image-ember
+            - label: Orbital
+              value: image-orbit
       - name: sections
         label: Page sections
         type: block
