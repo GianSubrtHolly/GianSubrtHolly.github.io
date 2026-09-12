@@ -82,6 +82,18 @@
       "tools": "Photoshop\nBlender",
       "image": "image-orbit",
       "sections": []
+    },
+    {
+      "title": "test 2",
+      "slug": "test",
+      "category": "materials",
+      "description": "fe",
+      "heroImage": "/assets/images/projects/Artstation Logo.png",
+      "heroAlt": "ttttttttttttttttt",
+      "lede": "tttttttttttttttttttttttttt",
+      "mainText": "ttttttttttttttttttttttttttttttttt",
+      "image": "image-ember",
+      "cardImage": "/assets/images/projects/Artstation Logo.png"
     }
   ]
 }
