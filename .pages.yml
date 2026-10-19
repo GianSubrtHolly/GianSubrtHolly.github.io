@@ -77,6 +77,33 @@ content:
         type: number
         required: false
         description: Optional. Leave blank to use the default responsive size.
+      - name: softwareIcons
+        label: Software icons
+        type: select
+        required: false
+        options:
+          multiple: true
+          values:
+            - label: Blender
+              value: BlenderIcon.webp
+            - label: Designer
+              value: DesignerIcon.png
+            - label: Houdini
+              value: HoudiniIcon.png
+            - label: Painter
+              value: PainterIcon.png
+            - label: Unreal Engine
+              value: UnrealEngineIcon.png
+      - name: softwareIconPlacement
+        label: Software icon placement
+        type: select
+        required: false
+        options:
+          values:
+            - label: Below header image
+              value: below
+            - label: Bottom right of header image
+              value: overlay
       - name: lede
         label: Large introductory text
         type: text

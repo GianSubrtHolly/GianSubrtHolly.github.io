@@ -189,10 +189,16 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
 .find-me > .contact-action:last-child { margin-right: 0; }
 .project-detail { padding: 90px 0 140px; }
 .project-detail h1 { margin: 40px 0 70px; font-size: clamp(2rem, 5vw, 5rem); }
-.detail-hero { min-height: 620px; margin-bottom: 70px; }
+.detail-hero-group { margin-bottom: 70px; }
+.detail-hero { position: relative; min-height: 620px; }
 .detail-hero.has-image { display: grid; place-items: center; overflow: hidden; background: #242725 !important; }
 .detail-hero.has-image.custom-size { min-height: 0; }
 .detail-hero.has-image img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+.software-icon-list { display: flex; justify-content: flex-end; gap: 12px; }
+.software-icon-list img { display: block; width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; }
+.detail-hero > .software-icon-list { position: absolute; right: 16px; bottom: 16px; padding: 10px; border-radius: 8px; background: rgb(20 22 21 / 78%); }
+.detail-hero > .software-icon-list img { position: static; width: 48px; height: 48px; max-width: none; max-height: none; }
+.detail-hero-group > .software-icon-list { margin-top: 12px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8%; border-top: 1px solid var(--line); padding-top: 28px; }
 .detail-lede { max-width: 360px; font-size: 2rem; line-height: 1; letter-spacing: -.06em; }
 .detail-copy { max-width: 500px; color: var(--muted); line-height: 1.55; }
@@ -227,7 +233,8 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
   .project-button-label small { display: block; text-align: left; margin-top: 5px; }
   .project-detail { padding: 60px 0 80px; }
   .project-detail h1 { margin: 34px 0 42px; }
-  .detail-hero { min-height: 360px; margin-bottom: 50px; }
+  .detail-hero-group { margin-bottom: 50px; }
+  .detail-hero { min-height: 360px; }
   .detail-hero.has-image:not(.custom-size) { width: 100% !important; height: 360px !important; }
   .detail-hero.has-image.custom-size { max-width: 100%; }
   .detail-grid, .detail-gallery { display: block; }
