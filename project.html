@@ -64,12 +64,12 @@
         const imageMarkup = images.length === 1
           ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(section.alt || project.title)}">`
           : `<div class="project-image-gallery">${images.map((image) => `<img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}">`).join('')}</div>`;
-        return `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy">${imageMarkup}${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>`;
+        return `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><div class="project-media-figure">${imageMarkup}${section.alt ? `<p class="media-description">${escapeHtml(section.alt)}</p>` : ''}</div>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>`;
       }
       if (sectionType === 'image-link') {
         const image = localProjectImage(section.image);
         const url = safeLinkUrl(section.url);
-        return image && url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><a href="${escapeHtml(url)}" rel="noopener noreferrer"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}"></a>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+        return image && url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><div class="project-media-figure"><a href="${escapeHtml(url)}" rel="noopener noreferrer"><img src="${escapeHtml(image)}" alt="${escapeHtml(section.alt || project.title)}"></a>${section.alt ? `<p class="media-description">${escapeHtml(section.alt)}</p>` : ''}</div>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
       if (sectionType === 'video') {
         const video = localProjectVideo(section.video);
