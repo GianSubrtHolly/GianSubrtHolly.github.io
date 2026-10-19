@@ -19,12 +19,16 @@
   "sections": [
     {
       "_block": "image",
-      "image": "/assets/images/projects/HighresScreenshot00010 (1).png",
+      "image": [
+        "/assets/images/projects/HighresScreenshot00010 (1).png"
+      ],
       "alt": "Brick Moss Closeup"
     },
     {
       "_block": "image",
-      "image": "/assets/images/projects/HighresScreenshot00003 (1) (1).png",
+      "image": [
+        "/assets/images/projects/HighresScreenshot00003 (1) (1).png"
+      ],
       "alt": "Material Ball"
     },
     {
@@ -34,8 +38,66 @@
     },
     {
       "_block": "image",
-      "image": "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105922.png",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105922.png"
+      ],
       "alt": "Material Graph"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105402.png",
+        "/assets/images/projects/MossyBrick/BaseBrick.png"
+      ],
+      "alt": "Base Brick Graph",
+      "caption": "The reference wall had this long bring short brick pattern of which was what made the wall interesting and in turn a interesting base shape, an individual tilt and randomness to each brick has been added to give it an imperfect look."
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105450.png",
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105522.png"
+      ],
+      "alt": "Brick Difference Graph",
+      "caption": "I break the bricks and give them shape changes, I also give them each a gradient to isolate them in the future."
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105618.png",
+        "/assets/images/projects/MossyBrick/brick details.png"
+      ],
+      "alt": "Brick Details Graph",
+      "caption": "Holes, Cracks, Scratches and Brick Depth are present within heavily damaged bricks"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105715.png",
+        "/assets/images/projects/MossyBrick/moss.png"
+      ],
+      "alt": "Moss Graph",
+      "caption": "To make the moss look realistic the moss grows using light detail of the material's heighmap, which disperses the moss with the strongest form of it placed on the parts of the brick that would be seen in real brick."
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105733.png",
+        "/assets/images/projects/MossyBrick/bird dismal.png"
+      ],
+      "alt": "Bird Exrement Graph",
+      "caption": "I make bird excrement on my material look realistic by using shape details within the material to affect the bird excrement, along with effects that make the excrement look like it fell on with velocity and spalttered."
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/MossyBrick/A_O.png",
+        "/assets/images/projects/MossyBrick/base color.png",
+        "/assets/images/projects/MossyBrick/normal.png",
+        "/assets/images/projects/MossyBrick/Roughness.png",
+        "/assets/images/projects/MossyBrick/Height.png"
+      ],
+      "alt": "Material Final Images"
     }
   ]
 }
