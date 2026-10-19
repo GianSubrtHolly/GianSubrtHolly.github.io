@@ -60,8 +60,21 @@
     const recentProjects = document.querySelector('#recent-projects');
     const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     const localProjectImage = (value) => {
-      const image = String(value || '');
-      return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
+      const match = /^\/?assets\/images\/projects\/(.+)$/.exec(String(value || ''));
+      if (!match) return '';
+      const segments = match[1].split('/');
+      const decodedSegments = [];
+      for (const segment of segments) {
+        let decodedSegment;
+        try {
+          decodedSegment = decodeURIComponent(segment);
+        } catch {
+          return '';
+        }
+        if (!decodedSegment || decodedSegment === '.' || decodedSegment === '..' || /[\/\\?#\u0000-\u001f]/.test(decodedSegment)) return '';
+        decodedSegments.push(encodeURIComponent(decodedSegment));
+      }
+      return `/assets/images/projects/${decodedSegments.join('/')}`;
     };
     fetch('content/projects.json').then((response) => response.json()).then((data) => {
       if (!Array.isArray(data.projects)) return;

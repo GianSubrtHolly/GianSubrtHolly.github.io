@@ -37,8 +37,21 @@
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
     const imageStyles = ['image-garden', 'image-ember', 'image-orbit'];
     const localProjectImage = (value) => {
-      const image = String(value || '');
-      return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
+      const match = /^\/?assets\/images\/projects\/(.+)$/.exec(String(value || ''));
+      if (!match) return '';
+      const segments = match[1].split('/');
+      const decodedSegments = [];
+      for (const segment of segments) {
+        let decodedSegment;
+        try {
+          decodedSegment = decodeURIComponent(segment);
+        } catch {
+          return '';
+        }
+        if (!decodedSegment || decodedSegment === '.' || decodedSegment === '..' || /[\/\\?#\u0000-\u001f]/.test(decodedSegment)) return '';
+        decodedSegments.push(encodeURIComponent(decodedSegment));
+      }
+      return `/assets/images/projects/${decodedSegments.join('/')}`;
     };
     const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     let projects = [];

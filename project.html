@@ -29,8 +29,21 @@
     const validSlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(slug || '')) ? slug : '';
     const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
     const localProjectImage = (value) => {
-      const image = String(value || '');
-      return /^\/?assets\/images\/projects\/[A-Za-z0-9._/-]+$/.test(image) && !image.includes('..') ? `/${image.replace(/^\//, '')}` : '';
+      const match = /^\/?assets\/images\/projects\/(.+)$/.exec(String(value || ''));
+      if (!match) return '';
+      const segments = match[1].split('/');
+      const decodedSegments = [];
+      for (const segment of segments) {
+        let decodedSegment;
+        try {
+          decodedSegment = decodeURIComponent(segment);
+        } catch {
+          return '';
+        }
+        if (!decodedSegment || decodedSegment === '.' || decodedSegment === '..' || /[\/\\?#\u0000-\u001f]/.test(decodedSegment)) return '';
+        decodedSegments.push(encodeURIComponent(decodedSegment));
+      }
+      return `/assets/images/projects/${decodedSegments.join('/')}`;
     };
     const localProjectVideo = (value) => {
       const video = String(value || '');
