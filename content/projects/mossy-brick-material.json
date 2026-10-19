@@ -1,0 +1,41 @@
+{
+  "title": "Mossy Brick Material",
+  "slug": "mossy-brick-material",
+  "category": "materials",
+  "description": "A mossy brick material made within Substance Designer and rendered in Unreal Engine using a dynamic material system.",
+  "heroImage": "/assets/images/projects/Brick Closeup Nice (1).png",
+  "heroAlt": "Brick Closeup",
+  "softwareIcons": [
+    "DesignerIcon.png",
+    "UnrealEngineIcon.png"
+  ],
+  "softwareIconPlacement": "overlay",
+  "lede": "Mossy Brick Material",
+  "mainText": "I created this material for my emergent games module in university, where I went to do a mastery project on node based materials, materials are a huge passion of mine and i have been doing node based materials since i picked up Blender in 2020, thoughout the years my understanding and talent in material creation have allowed me to create materials that are near-photorealistic. \n\nIn turn I wanted to create a material system for a mossy brick material that mimiced a wall within the University campus.",
+  "role": "Material Artist",
+  "tools": "Substance Designer\nUnreal Engine",
+  "image": "image-orbit",
+  "cardImage": "/assets/images/projects/Brick Closeup Nice (1).png",
+  "sections": [
+    {
+      "_block": "image",
+      "image": "/assets/images/projects/HighresScreenshot00010 (1).png",
+      "alt": "Brick Moss Closeup"
+    },
+    {
+      "_block": "image",
+      "image": "/assets/images/projects/HighresScreenshot00003 (1) (1).png",
+      "alt": "Material Ball"
+    },
+    {
+      "_block": "subheader",
+      "heading": "How It's Made",
+      "body": "Material Graph"
+    },
+    {
+      "_block": "image",
+      "image": "/assets/images/projects/MossyBrick/Screenshot 2026-10-19 105922.png",
+      "alt": "Material Graph"
+    }
+  ]
+}
