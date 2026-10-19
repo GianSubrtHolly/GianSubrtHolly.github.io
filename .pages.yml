@@ -179,7 +179,7 @@ content:
               - name: alt
                 label: Picture description
                 type: string
-                required: true
+                required: false
               - name: caption
                 label: Caption
                 type: string
@@ -194,7 +194,7 @@ content:
               - name: alt
                 label: Picture description
                 type: string
-                required: true
+                required: false
               - name: url
                 label: Link URL
                 type: string
