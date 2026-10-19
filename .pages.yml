@@ -170,9 +170,12 @@ content:
             label: Image
             fields:
               - name: image
-                label: Picture
+                label: Pictures
                 type: image
                 required: true
+                options:
+                  multiple: true
+                  unique: true
               - name: alt
                 label: Picture description
                 type: string

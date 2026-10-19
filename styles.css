@@ -40,6 +40,8 @@
 .project-media-block { grid-template-columns: 1fr; }
 .project-media-block .project-block-copy { max-width: 760px; margin-inline: auto; }
 .project-block-copy img { display: block; width: auto; max-width: 100%; height: auto; max-height: 520px; margin: 28px auto 0; object-fit: contain; }
+.project-block-copy .project-image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px; margin-top: 28px; }
+.project-block-copy .project-image-gallery img { width: 100%; height: 320px; max-height: none; margin: 0; background: #242725; }
 .project-block-copy video, .project-block-copy iframe { display: block; width: 100%; margin-top: 28px; border: 0; background: #242725; }
 .project-block-copy video { max-height: 520px; }
 .media-caption { margin: 12px 0 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .65rem; text-transform: uppercase; }
