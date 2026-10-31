@@ -55,10 +55,6 @@ content:
         label: Short description
         type: text
         required: true
-      - name: titleLine
-        label: Italic title line
-        type: string
-        required: false
       - name: heroImage
         label: Header image
         type: image
