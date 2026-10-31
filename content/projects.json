@@ -299,6 +299,27 @@
       "role": "Art direction\nEnvironment design",
       "tools": "Photoshop\nBlender",
       "sections": []
+    },
+    {
+      "title": "Website Sideload Proxy",
+      "slug": "website-sideload-proxy",
+      "category": "materials",
+      "description": "A test project for displaying a reference website inside a project page.",
+      "heroImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
+      "heroAlt": "Temporary broken tile material cover for the website sideload test",
+      "lede": "Testing a website reference embedded in a Materials project.",
+      "mainText": "This proxy project tests the Website sideload section in Pages CMS by loading the final major project website in an iframe.",
+      "role": "Website embed test",
+      "tools": "Pages CMS\niframe",
+      "cardImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
+      "sections": [
+        {
+          "_block": "website-sideload",
+          "url": "https://giansubrtholly.wixsite.com/final-major-project",
+          "title": "Final Major Project website",
+          "height": 720
+        }
+      ]
     }
   ]
 }

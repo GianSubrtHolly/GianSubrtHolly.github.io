@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <header class="site-header"><a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a></nav></header>
@@ -191,6 +191,12 @@
         const video = localProjectVideo(section.video);
         return video ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><video controls preload="metadata"><source src="${escapeHtml(video)}"></video>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
+      if (sectionType === 'website-sideload') {
+        const url = safeEmbedUrl(section.url);
+        const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 720;
+        const resizeHandles = ['nw', 'ne', 'w', 'e', 'sw', 's', 'se'].map((direction) => `<button class="website-sideload-resize website-sideload-resize-${direction}" type="button" aria-label="Resize website ${direction}" data-resize="${direction}"></button>`).join('');
+        return url ? `<section class="project-content-block project-media-block website-sideload-block"><div></div><div class="project-block-copy"><div class="website-sideload-frame" style="--website-sideload-height: ${height}px"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" loading="lazy" referrerpolicy="no-referrer"></iframe>${resizeHandles}</div></div></section>` : '';
+      }
       if (sectionType === 'embed') {
         const url = safeEmbedUrl(section.url);
         const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 420;
@@ -219,6 +225,51 @@
         image.tabIndex = 0;
         image.setAttribute('role', 'button');
         image.setAttribute('aria-label', `View image larger: ${image.alt || project.title}`);
+      });
+      projectPage.querySelectorAll('.website-sideload-frame').forEach((frame) => {
+        frame.querySelectorAll('[data-resize]').forEach((handle) => {
+          handle.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            const direction = handle.dataset.resize;
+            const startX = event.clientX;
+            const startY = event.clientY;
+            const startBounds = frame.getBoundingClientRect();
+            const startMarginLeft = Number.parseFloat(getComputedStyle(frame).marginLeft);
+            const startTop = Number.parseFloat(frame.style.top) || 0;
+            const startMarginBottom = Number.parseFloat(frame.style.marginBottom) || 0;
+            handle.setPointerCapture(event.pointerId);
+            const resize = (moveEvent) => {
+              const deltaX = moveEvent.clientX - startX;
+              const deltaY = moveEvent.clientY - startY;
+              let width = startBounds.width;
+              let height = startBounds.height;
+              if (direction.includes('w')) width -= deltaX;
+              if (direction.includes('e')) width += deltaX;
+              if (direction.includes('n')) height -= deltaY;
+              if (direction.includes('s')) height += deltaY;
+              const maxWidth = direction.includes('w') ? startBounds.right - 18 : window.innerWidth - startBounds.left - 18;
+              const maxHeight = direction.includes('n') ? startBounds.bottom - 20 : window.innerHeight - startBounds.top - 20;
+              width = Math.min(maxWidth, Math.max(260, width));
+              height = Math.min(maxHeight, Math.max(260, height));
+              frame.style.width = `${width}px`;
+              frame.style.height = `${height}px`;
+              if (direction.includes('w')) frame.style.marginLeft = `${startMarginLeft + startBounds.width - width}px`;
+              if (direction.includes('n')) {
+                const topOffset = startTop + startBounds.height - height;
+                frame.style.top = `${topOffset}px`;
+                frame.style.marginBottom = `${startMarginBottom + topOffset - startTop}px`;
+              }
+            };
+            const stopResize = () => {
+              handle.removeEventListener('pointermove', resize);
+              handle.removeEventListener('pointerup', stopResize);
+              handle.removeEventListener('pointercancel', stopResize);
+            };
+            handle.addEventListener('pointermove', resize);
+            handle.addEventListener('pointerup', stopResize);
+            handle.addEventListener('pointercancel', stopResize);
+          });
+        });
       });
     }
     fetch('content/projects.json').then((response) => response.json()).then((data) => {

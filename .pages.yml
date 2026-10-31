@@ -220,3 +220,21 @@ content:
                 label: Height
                 type: number
                 required: false
+          - name: website-sideload
+            label: Website sideload
+            fields:
+              - name: url
+                label: Website URL
+                type: string
+                required: true
+                pattern:
+                  regex: '^https://'
+                  message: Website embeds must use HTTPS.
+              - name: title
+                label: Website title
+                type: string
+                required: true
+              - name: height
+                label: Height
+                type: number
+                required: false
