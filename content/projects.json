@@ -1,6 +1,169 @@
 {
   "projects": [
     {
+      "title": "Broken Tiles Material",
+      "slug": "broken-tiles-material",
+      "category": "materials",
+      "description": "Broken tile material made within designer created for a personal project",
+      "titleLine": "Broken Tiles",
+      "heroImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
+      "heroAlt": "4k Broken Tile Render In Unreal Engine",
+      "heroWidth": -1,
+      "softwareIcons": [
+        "DesignerIcon.png",
+        "UnrealEngineIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Broken Tile Material",
+      "mainText": "This broken tile material was created to push my knowledge and abilities to the extent, I wanted to create a material outside from a university assignment on my own time whilst being able to do what I want with full creative freedom. ",
+      "role": "Material Artist",
+      "tools": "Substance Designer\nUnreal Engine",
+      "image": "image-garden",
+      "cardImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/HighresScreenshot00036.png",
+            "/assets/images/projects/Tiles/HighresScreenshot00034.png"
+          ],
+          "alt": "Broken Tiles Renders"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/HighresScreenshot00047.png",
+            "/assets/images/projects/Tiles/HighresScreenshot00045.png",
+            "/assets/images/projects/Tiles/HighresScreenshot00043.png",
+            "/assets/images/projects/Tiles/HighresScreenshot00041.png"
+          ],
+          "alt": "Material Cylinders"
+        },
+        {
+          "_block": "subheader",
+          "heading": "How It's Made"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 153627.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 153619.png"
+          ],
+          "alt": "I create a base tileable mask, I chose this shape as I personally thought it was an interesting shape and I had an idea with the painted on design ontop of the final material using this shape "
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154341.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154350.png"
+          ],
+          "alt": "I wanted to have missing and cracked tiles on this material, therefore due to how thin these tiles would be in real life they would crack in a more glass-like way where they would crack and shatter within their cracks this also allows for a better visual, I created cells that simulated broken edges and within certain crack islands I would crack it more by masking out random cells and combining it with a lower sized crack mask"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154524.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154402.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154740.png"
+          ],
+          "alt": "merged together the mask functions pretty well the cracks dont run through the entire shape and each tile has its own unique crack masked out so it doesnt affect every tile within the mask."
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154628.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154651.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154635.png"
+          ],
+          "alt": "I make the gradient for my tiles in a way that would show a physical hit, I deepen the tiles to show an impact happened within that spot and in the highest density of damage is where the breaks point, I also added a random tilt to a minor amount of tiles due to the fact not every tile would do that in a real material. "
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154612.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154808.png"
+          ],
+          "alt": "due to the scale of the project I make sure to create my masks that will be reused such as my floodfills to a wireless node, I also create a mask that removes broken tiles at random from my material"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154755.png"
+          ],
+          "alt": "I add a large amount of minor noise and minor damage to the tiles to add chaos, which makes a better final visual product this is seen in real life mostly and its a great way to make more photorealistic materials"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 155102.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154833.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 154845.png"
+          ],
+          "alt": "after doing construction work for a long time within my life, I saw a fine grout done for ceramic tiles which I wanted replicated for my material, I create a tileable cross material and mask it out for damage and so it elevates where the tiles are not present, there was an issue where sometiems the grout would grow over the tiles but after some masking and tweaks this issue was solved promptly"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 155036.png"
+          ],
+          "alt": "grout material closeup"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160109.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160114.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160126.png"
+          ],
+          "alt": "I created a pebble generator to disperse broken shards of tile in the cracks and missing areas of the tile material with larger shards being placed closer to the non-missing tiles"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160228.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160255.png",
+            "/assets/images/projects/XXXXXX-tile2.png"
+          ],
+          "alt": "The coloring of the tiles and grout was made to mimic my reference image, "
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160349.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160400.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160411.png"
+          ],
+          "alt": "This large spline system was to create this pattern for my material, I would have love to create this pattern in way less nodes but due to the limitation of the spline node this massive list was what I needed to create this pattern"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160445.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160509.png"
+          ],
+          "alt": "I used the pattern to create this spline system that makes brushstrokes in my material, it is applied subtly but adds alot of information that makes the tiles look painted by hand."
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160454.png",
+            "/assets/images/projects/Tiles/Screenshot 2026-10-21 160658.png"
+          ],
+          "alt": "This tiles and applies a fade away for the paint and works with the tileabiltiy of my material"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Tiles/Base Color Tiles.png",
+            "/assets/images/projects/Tiles/Height Tiles.png",
+            "/assets/images/projects/Tiles/A_O TIles.png",
+            "/assets/images/projects/Tiles/Normal Tiles.png"
+          ],
+          "alt": "Final Images"
+        }
+      ]
+    },
+    {
       "title": "Emberline",
       "slug": "emberline",
       "category": "lighting",
