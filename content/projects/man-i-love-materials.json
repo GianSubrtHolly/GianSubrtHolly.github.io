@@ -6,6 +6,14 @@
   "titleLine": "please please please",
   "heroImage": "/assets/images/projects/ZingaSit.png",
   "heroAlt": "wowwowowowow",
+  "softwareIcons": [
+    "BlenderIcon.webp",
+    "DesignerIcon.png",
+    "HoudiniIcon.png",
+    "PainterIcon.png",
+    "UnrealEngineIcon.png"
+  ],
+  "softwareIconPlacement": "below",
   "lede": "I LOVE TESTING MATERIALS",
   "mainText": "PLEASEEEE",
   "role": "artist\nCOLLECTER\nLOver",
