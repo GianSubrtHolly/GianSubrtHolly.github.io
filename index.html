@@ -56,7 +56,6 @@
 
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
-    const imageStyles = new Set(['image-garden', 'image-ember', 'image-orbit']);
     const recentProjects = document.querySelector('#recent-projects');
     const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     const localProjectImage = (value) => {
@@ -86,7 +85,7 @@
         card.className = 'project-button';
         card.href = `project.html?slug=${encodeURIComponent(slug)}`;
         const image = document.createElement('span');
-        image.className = `project-button-image ${imageStyles.has(project.image) ? project.image : 'image-orbit'}`;
+        image.className = 'project-button-image';
         const cardImage = localProjectImage(project.cardImage);
         if (cardImage) {
           image.classList.add('has-upload');
@@ -102,10 +101,6 @@
           uploadedImage.style.objectFit = 'contain';
           image.append(uploadedImage);
         }
-        const arrow = document.createElement('span');
-        arrow.className = 'project-button-arrow';
-        arrow.textContent = '↗';
-        image.append(arrow);
         const label = document.createElement('span');
         label.className = 'project-button-label';
         const title = document.createElement('strong');

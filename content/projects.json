@@ -9,16 +9,10 @@
       "heroImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
       "heroAlt": "4k Broken Tile Render In Unreal Engine",
       "heroWidth": -1,
-      "softwareIcons": [
-        "DesignerIcon.png",
-        "UnrealEngineIcon.png"
-      ],
-      "softwareIconPlacement": "overlay",
       "lede": "Broken Tile Material",
       "mainText": "This broken tile material was created to push my knowledge and abilities to the extent, I wanted to create a material outside from a university assignment on my own time whilst being able to do what I want with full creative freedom. ",
       "role": "Material Artist",
       "tools": "Substance Designer\nUnreal Engine",
-      "image": "image-garden",
       "cardImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
       "sections": [
         {
@@ -175,7 +169,6 @@
       "mainText": "Emberline began with a question: how can a landscape communicate danger before a single character appears? I explored compressed compositions, hot colour accents and heavy atmospheric perspective to make the environment feel active and unstable.",
       "role": "Visual development\nConcept artist",
       "tools": "Photoshop\nProcreate",
-      "image": "image-ember",
       "sections": []
     },
     {
@@ -190,7 +183,6 @@
       "mainText": "Liminal Gardens is a visual development project about places that have been reclaimed by time. The brief was to create an environment that felt both welcoming and slightly unknowable, using a restrained palette and strong architectural silhouettes.",
       "role": "Environment artist\nVisual development",
       "tools": "Photoshop\nBlender",
-      "image": "image-garden",
       "sections": []
     },
     {
@@ -201,19 +193,10 @@
       "titleLine": "please please please",
       "heroImage": "/assets/images/projects/ZingaSit.png",
       "heroAlt": "wowwowowowow",
-      "softwareIcons": [
-        "BlenderIcon.webp",
-        "DesignerIcon.png",
-        "HoudiniIcon.png",
-        "PainterIcon.png",
-        "UnrealEngineIcon.png"
-      ],
-      "softwareIconPlacement": "below",
       "lede": "I LOVE TESTING MATERIALS",
       "mainText": "PLEASEEEE",
       "role": "artist\nCOLLECTER\nLOver",
       "tools": "materials \nn\nshit",
-      "image": "image-orbit",
       "cardImage": "/assets/images/projects/ZingaSit-1.png",
       "sections": [
         {
@@ -246,16 +229,10 @@
       "description": "A mossy brick material made within Substance Designer and rendered in Unreal Engine using a dynamic material system.",
       "heroImage": "/assets/images/projects/Brick Closeup Nice (1).png",
       "heroAlt": "Brick Closeup",
-      "softwareIcons": [
-        "DesignerIcon.png",
-        "UnrealEngineIcon.png"
-      ],
-      "softwareIconPlacement": "overlay",
       "lede": "Mossy Brick Material",
       "mainText": "I created this material for my emergent games module in university, where I went to do a mastery project on node based materials, materials are a huge passion of mine and i have been doing node based materials since i picked up Blender in 2020, thoughout the years my understanding and talent in material creation have allowed me to create materials that are near-photorealistic. \n\nIn turn I wanted to create a material system for a mossy brick material that mimiced a wall within the University campus.",
       "role": "Material Artist",
       "tools": "Substance Designer\nUnreal Engine",
-      "image": "image-orbit",
       "cardImage": "/assets/images/projects/Brick Closeup Nice (1).png",
       "sections": [
         {
@@ -352,7 +329,6 @@
       "mainText": "Orbital Bloom is an art direction study for a future where growing things is a collective act. The work focused on defining a modular visual system that could move between intimate plant life and enormous orbital structures.\n\nI created the colour script, shape language, environment keys and reference framework for the project.",
       "role": "Art direction\nEnvironment design",
       "tools": "Photoshop\nBlender",
-      "image": "image-orbit",
       "sections": []
     }
   ]

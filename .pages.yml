@@ -77,33 +77,6 @@ content:
         type: number
         required: false
         description: Optional. Leave blank to use the default responsive size.
-      - name: softwareIcons
-        label: Software icons
-        type: select
-        required: false
-        options:
-          multiple: true
-          values:
-            - label: Blender
-              value: BlenderIcon.webp
-            - label: Designer
-              value: DesignerIcon.png
-            - label: Houdini
-              value: HoudiniIcon.png
-            - label: Painter
-              value: PainterIcon.png
-            - label: Unreal Engine
-              value: UnrealEngineIcon.png
-      - name: softwareIconPlacement
-        label: Software icon placement
-        type: select
-        required: false
-        options:
-          values:
-            - label: Below header image
-              value: below
-            - label: Bottom right of header image
-              value: overlay
       - name: lede
         label: Large introductory text
         type: text
@@ -120,23 +93,11 @@ content:
         label: Tools
         type: text
         required: false
-      - name: image
-        label: Card image style
-        type: select
-        required: true
-        options:
-          values:
-            - label: Garden
-              value: image-garden
-            - label: Ember
-              value: image-ember
-            - label: Orbital
-              value: image-orbit
       - name: cardImage
         label: Card preview image
         type: image
         required: false
-        description: Optional upload. If blank, the selected card image style is used.
+        description: Optional upload. If blank, the project card uses a plain dark background.
       - name: sections
         label: Page sections
         type: block
@@ -176,6 +137,7 @@ content:
                 options:
                   multiple: true
                   unique: true
+                description: Multiple pictures display together in a two-column gallery on project pages.
               - name: alt
                 label: Picture description
                 type: string

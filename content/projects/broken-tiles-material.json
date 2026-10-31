@@ -7,16 +7,10 @@
   "heroImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
   "heroAlt": "4k Broken Tile Render In Unreal Engine",
   "heroWidth": -1,
-  "softwareIcons": [
-    "DesignerIcon.png",
-    "UnrealEngineIcon.png"
-  ],
-  "softwareIconPlacement": "overlay",
   "lede": "Broken Tile Material",
   "mainText": "This broken tile material was created to push my knowledge and abilities to the extent, I wanted to create a material outside from a university assignment on my own time whilst being able to do what I want with full creative freedom. ",
   "role": "Material Artist",
   "tools": "Substance Designer\nUnreal Engine",
-  "image": "image-garden",
   "cardImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
   "sections": [
     {

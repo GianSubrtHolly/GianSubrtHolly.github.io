@@ -35,7 +35,6 @@
   </main>
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
-    const imageStyles = ['image-garden', 'image-ember', 'image-orbit'];
     const localProjectImage = (value) => {
       const match = /^\/?assets\/images\/projects\/(.+)$/.exec(String(value || ''));
       if (!match) return '';
@@ -76,7 +75,7 @@
         card.href = `project.html?slug=${encodeURIComponent(projectSlug(project.slug))}`;
         card.setAttribute('aria-label', `Open ${project.title} project`);
         const image = document.createElement('span');
-        image.className = `test-project-image ${imageStyles.includes(project.image) ? project.image : imageStyles[index % imageStyles.length]}`;
+        image.className = 'test-project-image';
         const cardImage = localProjectImage(project.cardImage);
         if (cardImage) {
           image.classList.add('has-upload');
@@ -92,9 +91,6 @@
           uploadedImage.style.objectFit = 'contain';
           image.append(uploadedImage);
         }
-        const number = document.createElement('span');
-        number.textContent = String(index + 1).padStart(2, '0');
-        image.append(number);
         const copy = document.createElement('span');
         copy.className = 'test-project-copy';
         const title = document.createElement('strong');

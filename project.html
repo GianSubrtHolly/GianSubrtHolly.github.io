@@ -8,23 +8,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="site-header"><a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a></nav></header>
   <main class="page-shell project-detail" id="project-page"><p class="project-loading">Loading project...</p></main>
   <footer class="site-footer page-shell"><p>© 2026 Gian Subrt Holly</p><p>Based in Europe / Working worldwide</p></footer>
+  <dialog class="image-viewer" aria-label="Image viewer">
+    <div class="image-viewer-panel">
+      <div class="image-viewer-toolbar">
+        <span class="image-viewer-title">Image preview</span>
+        <button type="button" data-zoom-out aria-label="Zoom out">−</button>
+        <output data-zoom-level aria-live="polite">100%</output>
+        <button type="button" data-zoom-in aria-label="Zoom in">+</button>
+        <button type="button" data-zoom-reset>Fit</button>
+        <button type="button" data-viewer-close aria-label="Close image preview">×</button>
+      </div>
+      <div class="image-viewer-viewport" tabindex="0" aria-label="Image preview. Drag to move, use the mouse wheel or zoom controls to zoom.">
+        <img class="image-viewer-image" alt="">
+      </div>
+    </div>
+  </dialog>
   <script>
     const categoryLabels = { materials: 'Materials', models: '3D Models', environmental: 'Environmental Art', lighting: 'Lighting Art', technical: 'Technical Art' };
-    const imageStyles = new Set(['image-garden', 'image-ember', 'image-orbit']);
-    const softwareIcons = {
-      'BlenderIcon.webp': { src: '/assets/PagesIcons/BlenderIcon.webp', alt: 'Blender' },
-      'DesignerIcon.png': { src: '/assets/PagesIcons/DesignerIcon.png', alt: 'Substance 3D Designer' },
-      'HoudiniIcon.png': { src: '/assets/PagesIcons/HoudiniIcon.png', alt: 'Houdini' },
-      'PainterIcon.png': { src: '/assets/PagesIcons/PainterIcon.png', alt: 'Substance 3D Painter' },
-      'UnrealEngineIcon.png': { src: '/assets/PagesIcons/UnrealEngineIcon.png', alt: 'Unreal Engine' }
-    };
     const projectPage = document.querySelector('#project-page');
+    const imageViewer = document.querySelector('.image-viewer');
+    const viewerImage = imageViewer.querySelector('.image-viewer-image');
+    const viewerViewport = imageViewer.querySelector('.image-viewer-viewport');
+    const zoomLevel = imageViewer.querySelector('[data-zoom-level]');
+    const minimumZoom = 0.05;
+    const maximumZoom = 4;
+    let zoom = 1;
+    let fitZoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let dragStart = null;
     const slug = new URLSearchParams(window.location.search).get('slug');
     const validSlug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(slug || '')) ? slug : '';
     const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
@@ -52,6 +70,97 @@
     const safeEmbedUrl = (value) => /^https:\/\//.test(String(value || '')) ? String(value) : '';
     const safeLinkUrl = (value) => /^(https:\/\/|\/?[A-Za-z0-9._/-]+\.html(?:[?#].*)?$)/.test(String(value || '')) ? String(value) : '';
     const paragraphs = (value) => String(value || '').split(/\n\s*\n|\n/).filter(Boolean).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
+    function updateViewerTransform() {
+      viewerImage.style.transform = `translate(-50%, -50%) translate3d(${panX}px, ${panY}px, 0) scale(${zoom})`;
+      zoomLevel.value = `${Math.round(zoom * 100)}%`;
+      imageViewer.querySelector('[data-zoom-out]').disabled = zoom <= minimumZoom;
+      imageViewer.querySelector('[data-zoom-in]').disabled = zoom >= maximumZoom;
+    }
+    function constrainViewerPan() {
+      const bounds = viewerViewport.getBoundingClientRect();
+      const maxPanX = Math.max(0, (viewerImage.naturalWidth * zoom - bounds.width) / 2);
+      const maxPanY = Math.max(0, (viewerImage.naturalHeight * zoom - bounds.height) / 2);
+      panX = Math.min(maxPanX, Math.max(-maxPanX, panX));
+      panY = Math.min(maxPanY, Math.max(-maxPanY, panY));
+    }
+    function setViewerZoom(nextZoom, clientX, clientY) {
+      const boundedZoom = Math.min(maximumZoom, Math.max(minimumZoom, nextZoom));
+      if (clientX !== undefined && clientY !== undefined) {
+        const bounds = viewerViewport.getBoundingClientRect();
+        const x = clientX - bounds.left - bounds.width / 2;
+        const y = clientY - bounds.top - bounds.height / 2;
+        panX = x - ((x - panX) / zoom) * boundedZoom;
+        panY = y - ((y - panY) / zoom) * boundedZoom;
+      } else {
+        panX *= boundedZoom / zoom;
+        panY *= boundedZoom / zoom;
+      }
+      zoom = boundedZoom;
+      constrainViewerPan();
+      updateViewerTransform();
+    }
+    function fitViewerImage() {
+      if (!viewerImage.naturalWidth || !viewerImage.naturalHeight) return;
+      const bounds = viewerViewport.getBoundingClientRect();
+      fitZoom = Math.min(1, bounds.width / viewerImage.naturalWidth, bounds.height / viewerImage.naturalHeight);
+      zoom = Math.max(minimumZoom, fitZoom);
+      panX = 0;
+      panY = 0;
+      updateViewerTransform();
+    }
+    function openImageViewer(image) {
+      viewerImage.onload = fitViewerImage;
+      viewerImage.src = image.currentSrc || image.src;
+      viewerImage.alt = image.alt || 'Project image';
+      imageViewer.showModal();
+      if (viewerImage.complete && viewerImage.naturalWidth) fitViewerImage();
+      viewerViewport.focus();
+    }
+    projectPage.addEventListener('click', (event) => {
+      const image = event.target.closest('.project-block-copy img');
+      if (!image) return;
+      event.preventDefault();
+      openImageViewer(image);
+    });
+    projectPage.addEventListener('keydown', (event) => {
+      if (!event.target.matches('.project-block-copy img') || !['Enter', ' '].includes(event.key)) return;
+      event.preventDefault();
+      openImageViewer(event.target);
+    });
+    imageViewer.querySelector('[data-zoom-in]').addEventListener('click', () => setViewerZoom(zoom * 1.25));
+    imageViewer.querySelector('[data-zoom-out]').addEventListener('click', () => setViewerZoom(zoom / 1.25));
+    imageViewer.querySelector('[data-zoom-reset]').addEventListener('click', fitViewerImage);
+    imageViewer.querySelector('[data-viewer-close]').addEventListener('click', () => imageViewer.close());
+    imageViewer.addEventListener('click', (event) => {
+      if (event.target === imageViewer) imageViewer.close();
+    });
+    viewerViewport.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      setViewerZoom(zoom * (event.deltaY < 0 ? 1.15 : 1 / 1.15), event.clientX, event.clientY);
+    }, { passive: false });
+    viewerViewport.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      dragStart = { x: event.clientX, y: event.clientY, panX, panY };
+      viewerViewport.setPointerCapture(event.pointerId);
+      viewerViewport.classList.add('is-dragging');
+    });
+    viewerViewport.addEventListener('pointermove', (event) => {
+      if (!dragStart) return;
+      panX = dragStart.panX + event.clientX - dragStart.x;
+      panY = dragStart.panY + event.clientY - dragStart.y;
+      constrainViewerPan();
+      updateViewerTransform();
+    });
+    const stopDragging = () => {
+      dragStart = null;
+      viewerViewport.classList.remove('is-dragging');
+    };
+    viewerViewport.addEventListener('pointerup', stopDragging);
+    viewerViewport.addEventListener('pointercancel', stopDragging);
+    imageViewer.addEventListener('close', stopDragging);
+    window.addEventListener('resize', () => {
+      if (imageViewer.open) fitViewerImage();
+    });
     const renderSections = (sections, project) => (sections || []).map((section) => {
       const sectionType = section.type || section._block;
       if (sectionType === 'subheader') return `<section class="project-content-block project-subheader"><div><h2>${escapeHtml(section.heading)}</h2></div><div class="project-block-copy">${paragraphs(section.body)}</div></section>`;
@@ -89,17 +198,14 @@
       const heroWidth = Number.isInteger(Number(project.heroWidth)) && Number(project.heroWidth) > 0 ? Math.min(Number(project.heroWidth), 2400) : '';
       const heroHeight = Number.isInteger(Number(project.heroHeight)) && Number(project.heroHeight) > 0 ? Math.min(Number(project.heroHeight), 1600) : '';
       const heroSize = heroWidth || heroHeight ? ` style="${heroWidth ? `width: ${heroWidth}px;` : ''}${heroHeight ? `height: ${heroHeight}px;` : ''}"` : '';
-      const imageClass = imageStyles.has(project.image) ? project.image : '';
-      const selectedSoftwareIcons = Array.isArray(project.softwareIcons)
-        ? [...new Set(project.softwareIcons)].map((icon) => softwareIcons[icon]).filter(Boolean)
-        : [];
-      const iconMarkup = selectedSoftwareIcons.length
-        ? `<div class="software-icon-list" role="group" aria-label="Software used">${selectedSoftwareIcons.map((icon) => `<img src="${icon.src}" alt="${escapeHtml(icon.alt)}" width="48" height="48">`).join('')}</div>`
-        : '';
-      const iconPlacement = project.softwareIconPlacement === 'overlay' ? 'overlay' : 'below';
       const heroImageMarkup = heroImage ? `<img src="${escapeHtml(heroImage)}" alt="${escapeHtml(project.heroAlt || project.title)}">` : '';
-      const heroMarkup = `<div class="detail-hero-group"><div class="detail-hero ${imageClass}${heroImage ? ` has-image${heroSize ? ' custom-size' : ''}` : ''}"${heroSize}${heroImage ? '' : ` role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"`}>${heroImageMarkup}${iconPlacement === 'overlay' ? iconMarkup : ''}</div>${iconPlacement === 'below' ? iconMarkup : ''}</div>`;
+      const heroMarkup = `<div class="detail-hero-group"><div class="detail-hero${heroImage ? ` has-image${heroSize ? ' custom-size' : ''}` : ''}"${heroSize}${heroImage ? '' : ` role="img" aria-label="${escapeHtml(project.heroAlt || project.title)}"`}>${heroImageMarkup}</div></div>`;
       projectPage.innerHTML = `<h1>${escapeHtml(project.title)}${project.titleLine ? `<br><em>${escapeHtml(project.titleLine)}</em>` : ''}</h1>${heroMarkup}<div class="detail-grid"><div><p class="project-index">Overview</p><p class="detail-lede">${escapeHtml(project.lede)}</p></div><div class="detail-copy">${paragraphs(project.mainText)}<div class="detail-meta">${project.role ? `<p><span>Role</span>${escapeHtml(project.role).replace(/\n/g, '<br>')}</p>` : ''}${project.tools ? `<p><span>Tools</span>${escapeHtml(project.tools).replace(/\n/g, '<br>')}</p>` : ''}</div></div></div>${sections}<a class="back-link" href="index.html">← Back to home</a>`;
+      projectPage.querySelectorAll('.project-block-copy img').forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `View image larger: ${image.alt || project.title}`);
+      });
     }
     fetch('content/projects.json').then((response) => response.json()).then((data) => {
       const project = (data.projects || []).find((entry) => entry.slug === validSlug);
