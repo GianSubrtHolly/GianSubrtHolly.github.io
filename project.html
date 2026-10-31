@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <header class="site-header"><a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a></nav></header>
@@ -195,7 +195,7 @@
         const url = safeEmbedUrl(section.url);
         const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 720;
         const resizeHandles = ['nw', 'ne', 'w', 'e', 'sw', 's', 'se'].map((direction) => `<button class="website-sideload-resize website-sideload-resize-${direction}" type="button" aria-label="Resize website ${direction}" data-resize="${direction}"></button>`).join('');
-        return url ? `<section class="project-content-block project-media-block website-sideload-block"><div></div><div class="project-block-copy"><div class="website-sideload-frame" style="--website-sideload-height: ${height}px"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" loading="lazy" referrerpolicy="no-referrer"></iframe>${resizeHandles}</div></div></section>` : '';
+        return url ? `<section class="project-content-block project-media-block website-sideload-block"><div></div><div class="project-block-copy"><div class="website-sideload-stage"><div class="website-sideload-frame" style="--website-sideload-height: ${height}px"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" loading="lazy" referrerpolicy="no-referrer"></iframe>${resizeHandles}</div></div></div></section>` : '';
       }
       if (sectionType === 'embed') {
         const url = safeEmbedUrl(section.url);
@@ -227,6 +227,7 @@
         image.setAttribute('aria-label', `View image larger: ${image.alt || project.title}`);
       });
       projectPage.querySelectorAll('.website-sideload-frame').forEach((frame) => {
+        const stage = frame.parentElement;
         frame.querySelectorAll('[data-resize]').forEach((handle) => {
           handle.addEventListener('pointerdown', (event) => {
             event.preventDefault();
@@ -234,9 +235,7 @@
             const startX = event.clientX;
             const startY = event.clientY;
             const startBounds = frame.getBoundingClientRect();
-            const startMarginLeft = Number.parseFloat(getComputedStyle(frame).marginLeft);
             const startTop = Number.parseFloat(frame.style.top) || 0;
-            const startMarginBottom = Number.parseFloat(frame.style.marginBottom) || 0;
             handle.setPointerCapture(event.pointerId);
             const resize = (moveEvent) => {
               const deltaX = moveEvent.clientX - startX;
@@ -253,11 +252,10 @@
               height = Math.min(maxHeight, Math.max(260, height));
               frame.style.width = `${width}px`;
               frame.style.height = `${height}px`;
-              if (direction.includes('w')) frame.style.marginLeft = `${startMarginLeft + startBounds.width - width}px`;
               if (direction.includes('n')) {
                 const topOffset = startTop + startBounds.height - height;
                 frame.style.top = `${topOffset}px`;
-                frame.style.marginBottom = `${startMarginBottom + topOffset - startTop}px`;
+                stage.style.paddingBottom = `${Math.max(0, topOffset)}px`;
               }
             };
             const stopResize = () => {

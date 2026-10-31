@@ -39,7 +39,8 @@
 .project-media-block { grid-template-columns: 1fr; }
 .project-media-block .project-block-copy { max-width: 760px; margin-inline: auto; }
 .website-sideload-block .project-block-copy { width: 100%; max-width: none; }
-.website-sideload-frame { position: relative; left: 50%; width: 80vw; height: min(80vh, var(--website-sideload-height, 720px)); min-width: 320px; min-height: 320px; max-width: calc(100vw - 36px); max-height: calc(100vh - 40px); margin-top: 28px; margin-left: -40vw; overflow: hidden; box-sizing: border-box; }
+.website-sideload-stage { display: flex; justify-content: center; width: 100%; padding-top: 28px; box-sizing: border-box; }
+.website-sideload-frame { position: relative; top: 0; flex: 0 0 auto; width: 80vw; height: min(80vh, var(--website-sideload-height, 720px)); min-width: min(320px, calc(100vw - 36px)); min-height: min(320px, calc(100vh - 40px)); max-width: calc(100vw - 36px); max-height: calc(100vh - 40px); overflow: hidden; box-sizing: border-box; }
 .project-block-copy .website-sideload-frame iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; margin: 0; border: 0; background: transparent; }
 .website-sideload-resize { position: absolute; z-index: 1; display: block; min-width: 0; min-height: 0; margin: 0; padding: 0; appearance: none; border: 0; background: transparent; color: transparent; font: inherit; line-height: 0; touch-action: none; }
 .website-sideload-resize:hover, .website-sideload-resize:focus-visible { background: rgb(224 112 89 / 30%); outline: none; }
@@ -269,7 +270,7 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
   .detail-grid, .detail-gallery { display: block; }
   .project-content-block { display: block; }
   .project-content-block h2 { margin: 14px 0 28px; }
-  .website-sideload-frame { left: auto; width: calc(100vw - 36px); height: min(80vh, var(--website-sideload-height, 720px)); min-width: 260px; min-height: 260px; margin-left: calc((100% - (100vw - 36px)) / 2); }
+  .website-sideload-frame { width: calc(100vw - 36px); height: min(80vh, var(--website-sideload-height, 720px)); min-width: min(260px, calc(100vw - 36px)); min-height: min(260px, calc(100vh - 40px)); }
   .detail-lede { font-size: 1.7rem; margin-bottom: 42px; }
   .detail-meta { gap: 28px; }
   .detail-gallery { margin: 70px 0 42px; }
