@@ -9,6 +9,8 @@ content:
     path: content/projects
     format: json
     filename: "{slug}.json"
+    operations:
+      delete: true
     actions:
       - name: refresh-project-index
         label: Refresh project index
