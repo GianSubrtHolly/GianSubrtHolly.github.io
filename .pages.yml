@@ -14,6 +14,7 @@ content:
         label: Refresh project index
         workflow: build-project-index.yml
         scope: collection
+        cancelable: true
         confirm:
           title: Refresh project index?
           message: Recheck all project files and update the public project listings.

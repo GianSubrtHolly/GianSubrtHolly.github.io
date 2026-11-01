@@ -20,14 +20,15 @@ permissions:
 jobs:
   build-index:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Build project index
+      - name: Read project files and build index
         run: node scripts/build-project-index.mjs
-      - name: Commit project index
+      - name: Commit and push updated index
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
