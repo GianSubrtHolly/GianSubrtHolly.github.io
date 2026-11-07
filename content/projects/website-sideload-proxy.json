@@ -1,16 +1,46 @@
 {
-  "title": "Website Sideload Proxy",
-  "slug": "website-sideload-proxy",
-  "category": "materials",
-  "description": "A test project for displaying a reference website inside a project page.",
-  "heroImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
-  "heroAlt": "Temporary broken tile material cover for the website sideload test",
-  "lede": "Testing a website reference embedded in a Materials project.",
-  "mainText": "This proxy project tests the Website sideload section in Pages CMS by loading the final major project website in an iframe.",
-  "role": "Website embed test",
-  "tools": "Pages CMS\niframe",
-  "cardImage": "/assets/images/projects/Tiles/HighresScreenshot00032.png",
+  "title": "Blender Envrionments",
+  "slug": "blender-environments",
+  "category": "environmental",
+  "description": "A set of environments made with an envrionment assets I've created",
+  "heroImage": "/assets/images/projects/BlenderEnvironment/gian-subrt-holly-finalrender-4 (1).jpg",
+  "heroAlt": "Shadow of the Colossus inspired envrionment",
+  "softwareIcons": [
+    "BlenderIcon.webp"
+  ],
+  "softwareIconPlacement": "overlay",
+  "lede": "A set of environments made with an envrionment assets I've created",
+  "mainText": "This project was for my final level 3 UAL extended diploma hand in where i went above and beyond to get into University, over the years I have gone back into the scene and created other environments with the assets i created.",
+  "role": "Artist",
+  "tools": "Blender",
+  "cardImage": "/assets/images/projects/BlenderEnvironment/gian-subrt-holly-finalrender-4 (1).jpg",
   "sections": [
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/BlenderEnvironment/gian-subrt-holly-finalrender-4 (1).jpg"
+      ],
+      "alt": "Shadow of the Colossus Inspired Render"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/BlenderEnvironment/ScarabFiles1.png"
+      ],
+      "alt": "Cliffside Ocean Render"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/BlenderEnvironment/windows screensaver version (1).png"
+      ],
+      "alt": "Windows screen saver mixed with liminal space render"
+    },
+    {
+      "_block": "text",
+      "heading": "Theory & Production",
+      "body": "This previous website is all my theory and research into how I would prepare to make this along with the production of the scene and assets."
+    },
     {
       "_block": "website-sideload",
       "url": "https://giansubrtholly.wixsite.com/final-major-project",
