@@ -5,6 +5,9 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Project edits are deployed after the project index has been rebuilt below.
+    paths-ignore:
+      - 'content/projects/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
