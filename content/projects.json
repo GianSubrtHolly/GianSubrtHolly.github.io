@@ -345,6 +345,96 @@
       ]
     },
     {
+      "title": "Prop Lighting",
+      "slug": "prop-lighting",
+      "category": "lighting",
+      "description": "This project was for university to light a prop",
+      "heroImage": "/assets/images/projects/Lighting art/HighresScreenshot00009 (1).png",
+      "heroAlt": "Prop Lighting Project",
+      "softwareIcons": [
+        "UnrealEngineIcon.png",
+        "BlenderIcon.webp",
+        "PainterIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Prop Lighting Project",
+      "mainText": "This project was for university to light a prop where I wanted a museum style setting for my headstone prop",
+      "role": "Lighting Artist\n3D Modeller",
+      "tools": "Blender\nSubstance Painter\nUnreal Engine",
+      "cardImage": "/assets/images/projects/Lighting art/HighresScreenshot00009 (1).png",
+      "sections": [
+        {
+          "_block": "subheader",
+          "heading": "How It Was Done"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-18 120930.png"
+          ],
+          "alt": "Used prop"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-18 145143.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 173624.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-18 153324.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 173632.png"
+          ],
+          "alt": "I made a dirty glass box for the prop to sit within, which I've seen in museums to better gather the setting"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 183936.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 184150.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 184214.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 184232.png"
+          ],
+          "alt": "Initial Camera Angles"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 173729.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 185022.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 185243.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 185407.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 185450.png"
+          ],
+          "alt": "Initial Rejected Camera and Lighting Setup"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 173725.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 190924.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 190754.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 190424.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 190442.png"
+          ],
+          "alt": "Secondary Rejected Camera and Lighting Setup"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 184232.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 191915.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 192020.png",
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 192054.png"
+          ],
+          "alt": "Light Building Changes"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/Lighting art/Screenshot 2025-05-19 173813.png"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Room Lighting",
       "slug": "room-lighting",
       "category": "lighting",
