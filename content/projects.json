@@ -301,6 +301,50 @@
       "sections": []
     },
     {
+      "title": "Phone Box Envrionment",
+      "slug": "phone-box-envrionment",
+      "category": "environmental",
+      "description": "This was a personal project placing a phonebox in a forest, inspired from an image I saw years ago",
+      "heroImage": "/assets/images/projects/PhoneboxRender/HighresScreenshot00004 (3).png",
+      "heroAlt": "Phonebox Render Night Scene",
+      "softwareIcons": [
+        "BlenderIcon.webp",
+        "PainterIcon.png",
+        "UnrealEngineIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "This was a personal project placing a phonebox in a forest, inspired from an image I saw years ago",
+      "mainText": "This project was made in Blender, Substance Painter and Unreal engine, I saw an  art piece years ago and have always wanted to create my own version but due to the need to study at the time I could never create it. ",
+      "role": "Artist",
+      "tools": "Blender\nSubstance Painter\nUnreal Engine",
+      "cardImage": "/assets/images/projects/PhoneboxRender/HighresScreenshot00004 (3).png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/PhoneboxRender/HighresScreenshot00004 (3).png",
+            "/assets/images/projects/PhoneboxRender/image (33).png"
+          ],
+          "alt": "Day Scene & Night Scene"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/PhoneboxRender/HighresScreenshot00004 (3) (1).png"
+          ],
+          "alt": "Night scene made for phone wallpaper"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/PhoneboxRender/Screenshot 2026-11-08 101551.png",
+            "/assets/images/projects/PhoneboxRender/Screenshot 2026-11-08 101602.png"
+          ],
+          "alt": "Phone Box Mesh"
+        }
+      ]
+    },
+    {
       "title": "Blender Envrionments",
       "slug": "blender-environments",
       "category": "environmental",
