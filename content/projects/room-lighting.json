@@ -1,0 +1,142 @@
+{
+  "title": "Room Lighting",
+  "slug": "room-lighting",
+  "category": "lighting",
+  "description": "A room lighting art project I did for University",
+  "heroImage": "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004 (1).jpg",
+  "heroAlt": "Room Globe Render",
+  "softwareIcons": [
+    "UnrealEngineIcon.png"
+  ],
+  "softwareIconPlacement": "overlay",
+  "lede": "Room Lighting Project",
+  "mainText": "This room was created for a University project where realistic lighting and lighting theory was the main aim, i wanted to create room lighting ",
+  "role": "Lighting Artist",
+  "tools": "Unreal Engine",
+  "cardImage": "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004 (1).jpg",
+  "sections": [
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00011.jpg",
+        "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00010.jpg",
+        "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004 (1).jpg"
+      ],
+      "alt": "Final Renders"
+    },
+    {
+      "_block": "subheader",
+      "heading": "Production of Globe Render"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 211425.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 211627.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 211428.png"
+      ],
+      "alt": "Gathered Assets"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 213254.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 213306.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 213325.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 213753.png"
+      ],
+      "alt": "Initial scene building and setup"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 215904.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-18 111820.png"
+      ],
+      "alt": "setup that redirected me from a nighttime lighting setup"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 220946.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-18 111810.png",
+        "/assets/images/projects/Screenshot 2025-05-18 111754.png"
+      ],
+      "alt": "Window lighting setup and tests",
+      "caption": "I wanted the globe to be the focus of attention using leading lines from the light to guide eyes to it"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 220523.png"
+      ],
+      "alt": "added indirect lighting"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 220752.png"
+      ],
+      "alt": "Lessened the light temperature and added lens flare and light spot on painting"
+    },
+    {
+      "_block": "subheader",
+      "heading": "Production of Sofa Room"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/image (17).png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 213350.png"
+      ],
+      "alt": "Camera angle and intentions"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-18 074655.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-18 074645.png"
+      ],
+      "alt": "initial lighting issues",
+      "caption": "the light shafts wouldnt render if the light source wasnt being rendered which was an issue i faced, i fixed this through a console command and changing the way i would be preforming light shafts in my project"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 214759.png",
+        "/assets/images/projects/Lighting art/Shots.0000.jpeg"
+      ],
+      "alt": "Initial lighting preperations"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 214835.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 214844.png"
+      ],
+      "alt": "gobo implimentation"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 215011.png"
+      ],
+      "alt": "indirect light tweaks"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 215140.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 215127.png"
+      ],
+      "alt": "extenal greenery"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-18 164641.png"
+      ],
+      "alt": "techncial research"
+    }
+  ]
+}
