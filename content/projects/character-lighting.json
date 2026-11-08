@@ -1,0 +1,85 @@
+{
+  "title": "Character Lighting",
+  "slug": "character-lighting",
+  "category": "lighting",
+  "description": "This is a Lighting Project Made For A University Task",
+  "heroImage": "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004-1.jpg",
+  "heroAlt": "Character Lighting Project",
+  "softwareIcons": [
+    "UnrealEngineIcon.png"
+  ],
+  "softwareIconPlacement": "overlay",
+  "lede": "Character Lighting Project",
+  "mainText": "This is a lighting project made for a university task, i wanted to play with color's posture and shadows",
+  "role": "Lighting Artsit",
+  "tools": "Unreal Engine",
+  "cardImage": "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004-1.jpg",
+  "sections": [
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/gian-subrt-holly-highresscreenshot00004-1.jpg",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 202136.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210136.png"
+      ],
+      "alt": "Final Renders"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 195058.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 194938.png"
+      ],
+      "alt": "Used assets"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 200719.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 200725.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 203514.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 203523.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 205454.png"
+      ],
+      "alt": "Postures and Camera Setups"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 201217.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 201305.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 201642.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 201740.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 202136.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210506.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210513.png"
+      ],
+      "alt": "Rejected Scene Setup #1",
+      "caption": "I wanted to a traditional confident colored light setup where the character gets hit with blue and red light "
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/image (16).png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210426.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 205522.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 205954.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210053.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210136.png"
+      ],
+      "alt": "Rejected Scene Setup #2",
+      "caption": "I wanted a melancholic closeup of the character with determination signified in the lighting showing like a halo or a glow"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/Lighting art/image (15).png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 210440.png",
+        "/assets/images/projects/Lighting art/Screenshot 2025-05-19 204703.png",
+        "/assets/images/projects/Lighting art/HighresScreenshot00004 (1) (1).png"
+      ],
+      "alt": "Accepted Scene Setup",
+      "caption": "I wanted a defeted scene where hopelessness was the main draw this was done simply by making a minimalist scene and having the character block out the light casting themselve on the floor"
+    }
+  ]
+}
