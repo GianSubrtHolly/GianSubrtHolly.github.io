@@ -60,7 +60,7 @@
 .media-description { margin: 14px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
 .project-block-copy video, .project-block-copy iframe { display: block; width: 100%; margin-top: 28px; border: 0; background: #242725; }
 .project-block-copy video { max-height: 520px; }
-.project-block-copy iframe.youtube-video-embed { height: auto; aspect-ratio: 16 / 9; }
+.project-block-copy iframe.youtube-video-embed { position: relative; left: 50%; width: min(250%, calc(100vw - 36px)); max-width: calc(100vw - 36px); height: auto; margin: 28px 0 0; transform: translateX(-50%); aspect-ratio: 16 / 9; }
 .media-caption { margin: 20px 0 0; color: var(--muted); font-family: "DM Mono", monospace; font-size: .75rem; line-height: 1.6; }
 .project-block-copy img[role="button"] { cursor: zoom-in; }
 .project-block-copy img[role="button"]:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; }
