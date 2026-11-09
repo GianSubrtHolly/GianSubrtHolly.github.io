@@ -36,6 +36,9 @@
 .project-content-block { display: grid; grid-template-columns: 1fr 1fr; gap: 8%; padding: 46px 0; }
 .project-content-block h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 3rem); line-height: .95; letter-spacing: -.06em; font-weight: 500; }
 .project-block-copy { max-width: 500px; color: var(--muted); line-height: 1.55; }
+.project-content-block.project-subheader { grid-template-columns: minmax(0, 1fr); justify-items: center; row-gap: 18px; }
+.project-subheader > div:first-child { width: min(100%, 760px); padding-bottom: 18px; border-bottom: 1px solid var(--line); text-align: center; }
+.project-subheader .project-block-copy { width: min(100%, 760px); text-align: center; }
 .project-media-block { grid-template-columns: 1fr; }
 .project-media-block .project-block-copy { max-width: 760px; margin-inline: auto; }
 .website-sideload-block .project-block-copy { width: 100%; max-width: none; }
