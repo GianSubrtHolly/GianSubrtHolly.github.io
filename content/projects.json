@@ -312,6 +312,38 @@
       ]
     },
     {
+      "title": "Landscape Tool",
+      "slug": "landscape-tool",
+      "category": "technical",
+      "description": "This landscape tool was made for a university project.",
+      "heroImage": "/assets/images/projects/TechArtUniTools/TerrainTool/Screenshot 2025-11-22 183338.png",
+      "heroAlt": "Transform Tool",
+      "softwareIcons": [
+        "UnrealEngineIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Transform Tool",
+      "mainText": "This transform tool was made for a university project, the tool has multiple quality of life setting along with PCG plugin integration",
+      "role": "Technical Artist",
+      "tools": "Unreal Engine",
+      "cardImage": "/assets/images/projects/TechArtUniTools/TerrainTool/Screenshot 2025-11-22 183338.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/TerrainTool/Screenshot 2025-11-22 183338.png"
+          ],
+          "alt": "Transform Tool UI",
+          "caption": "This tool has the ability to alter scalar parameters with a viewport to show how the landscape material would affect curves altitude and slopes, it can add world and local noise brushes, it also interacts with the PCG plugin and can manupulate, spawn and randomise their seeds."
+        },
+        {
+          "_block": "youtube-video",
+          "url": "https://youtu.be/2NoyoYI817Y",
+          "title": "Landscape Tool"
+        }
+      ]
+    },
+    {
       "title": "Mossy Brick Material",
       "slug": "mossy-brick-material",
       "category": "materials",
