@@ -247,6 +247,71 @@
       ]
     },
     {
+      "title": "Cinematography Tool",
+      "slug": "cinematography-tool",
+      "category": "technical",
+      "description": "Cinematography tool made for a university project.",
+      "heroImage": "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113100.png",
+      "heroAlt": "Cinematography tool",
+      "softwareIcons": [
+        "UnrealEngineIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Cinematography Tool",
+      "mainText": "This is a cinematography tool made for a university project. I have a huge passion in cinematograhy and rendering, I wanted to make a tool that I would personally use in the future for my own work. Therefore I made that tool with everything I would need and expect from a cinematography tool.",
+      "role": "Technical Artist",
+      "tools": "Unreal Engine",
+      "cardImage": "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113100.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113100.png"
+          ],
+          "alt": "Camera Panel",
+          "caption": "Camera panel spawns cameras and give controls, with quality of life buttons along with a camera preview to better show what the camera sees to give a better user experience"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113114.png"
+          ],
+          "alt": "Post Processing Panel",
+          "caption": "post processing panel is a quick access way to the post processing volume"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113122.png"
+          ],
+          "alt": "Lighting Panel",
+          "caption": "The lighting panel comes with light presets, a list of lights, quality of life buttons  and a simple way to control add and alter lights"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-15 113133.png"
+          ],
+          "alt": "Gobo Panel",
+          "caption": "This gives a list of visual gobos with access to add gobos to the system, gobo spawning quality of life systems and quick gobo chaning."
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-13 141311.png",
+            "/assets/images/projects/TechArtUniTools/CinematographyTool/Screenshot 2025-11-13 142653.png"
+          ],
+          "alt": "Lighting Presets",
+          "caption": "These are real world values of lights "
+        },
+        {
+          "_block": "embed",
+          "url": "https://youtu.be/NqtnDDME9VU",
+          "title": "Cinematics Demo"
+        }
+      ]
+    },
+    {
       "title": "Mossy Brick Material",
       "slug": "mossy-brick-material",
       "category": "materials",
