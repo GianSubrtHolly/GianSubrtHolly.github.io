@@ -75,6 +75,26 @@
       return /^\/?assets\/videos\/[A-Za-z0-9._/-]+$/.test(video) && !video.includes('..') ? `/${video.replace(/^\//, '')}` : '';
     };
     const safeEmbedUrl = (value) => /^https:\/\//.test(String(value || '')) ? String(value) : '';
+    const safeYoutubeEmbedUrl = (value) => {
+      let url;
+      try {
+        url = new URL(String(value || ''));
+      } catch {
+        return '';
+      }
+      if (url.protocol !== 'https:') return '';
+      let videoId = '';
+      if (url.hostname === 'youtu.be') {
+        videoId = url.pathname.split('/')[1] || '';
+      } else if (['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtube-nocookie.com', 'www.youtube-nocookie.com'].includes(url.hostname)) {
+        if (url.pathname === '/watch') {
+          videoId = url.searchParams.get('v') || '';
+        } else {
+          videoId = /^\/(?:embed|shorts|live)\/([^/]+)$/.exec(url.pathname)?.[1] || '';
+        }
+      }
+      return /^[A-Za-z0-9_-]{11}$/.test(videoId) ? `https://www.youtube-nocookie.com/embed/${videoId}` : '';
+    };
     const safeLinkUrl = (value) => /^(https:\/\/|\/?[A-Za-z0-9._/-]+\.html(?:[?#].*)?$)/.test(String(value || '')) ? String(value) : '';
     const paragraphs = (value) => String(value || '').split(/\n\s*\n|\n/).filter(Boolean).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
     function updateViewerTransform() {
@@ -191,6 +211,10 @@
         const video = localProjectVideo(section.video);
         return video ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><video controls preload="metadata"><source src="${escapeHtml(video)}"></video>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
       }
+      if (sectionType === 'youtube-video') {
+        const url = safeYoutubeEmbedUrl(section.url);
+        return url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><iframe class="youtube-video-embed" src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>${section.caption ? `<p class="media-caption">${escapeHtml(section.caption)}</p>` : ''}</div></section>` : '';
+      }
       if (sectionType === 'website-sideload') {
         const url = safeEmbedUrl(section.url);
         const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 720;
@@ -198,9 +222,10 @@
         return url ? `<section class="project-content-block project-media-block website-sideload-block"><div></div><div class="project-block-copy"><div class="website-sideload-stage"><div class="website-sideload-frame" style="--website-sideload-height: ${height}px"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" loading="lazy" referrerpolicy="no-referrer"></iframe>${resizeHandles}</div></div></div></section>` : '';
       }
       if (sectionType === 'embed') {
-        const url = safeEmbedUrl(section.url);
+        const youtubeUrl = safeYoutubeEmbedUrl(section.url);
+        const url = youtubeUrl || safeEmbedUrl(section.url);
         const height = Number.isInteger(Number(section.height)) && Number(section.height) >= 180 && Number(section.height) <= 900 ? Number(section.height) : 420;
-        return url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" height="${height}" loading="lazy" referrerpolicy="no-referrer"></iframe></div></section>` : '';
+        return url ? `<section class="project-content-block project-media-block"><div></div><div class="project-block-copy"><iframe src="${escapeHtml(url)}" title="${escapeHtml(section.title || project.title)}" height="${height}" loading="lazy" referrerpolicy="${youtubeUrl ? 'strict-origin-when-cross-origin' : 'no-referrer'}"></iframe></div></section>` : '';
       }
       return '';
     }).join('');

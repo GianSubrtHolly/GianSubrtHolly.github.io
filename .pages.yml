@@ -205,6 +205,25 @@ content:
                 label: Caption
                 type: string
                 required: false
+          - name: youtube-video
+            label: YouTube video
+            fields:
+              - name: url
+                label: YouTube video URL
+                type: string
+                required: true
+                pattern:
+                  regex: '^https://'
+                  message: YouTube video links must use HTTPS.
+                description: Paste a standard YouTube link (youtube.com/watch, youtu.be, or a Shorts link).
+              - name: title
+                label: Video title
+                type: string
+                required: true
+              - name: caption
+                label: Caption
+                type: string
+                required: false
           - name: embed
             label: Embed
             fields:
