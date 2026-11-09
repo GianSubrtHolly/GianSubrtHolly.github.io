@@ -688,6 +688,38 @@
       ]
     },
     {
+      "title": "Transform Tool",
+      "slug": "transform-tool",
+      "category": "technical",
+      "description": "This transform tool was made for a university project.",
+      "heroImage": "/assets/images/projects/TechArtUniTools/TransformTool/Screenshot 2025-11-22 170555 - Copy.png",
+      "heroAlt": "Transform Tool",
+      "softwareIcons": [
+        "UnrealEngineIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Transform Tool",
+      "mainText": "This transform tool was made for a university project. I wanted to make a transform tool with quality of life systems and a viewport that someone can use whilst not having so manually view the object using their main viewport. ",
+      "role": "Technical Artist",
+      "tools": "Unreal Engine",
+      "cardImage": "/assets/images/projects/TechArtUniTools/TransformTool/Screenshot 2025-11-22 170555 - Copy.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TechArtUniTools/TransformTool/Screenshot 2025-11-22 170555 - Copy.png"
+          ],
+          "alt": "Transform Tool UI",
+          "caption": "This tool has a viewport, transform utility with singular or multiple objects, renaming, file orginisation, selection tools and tag adding along with getting the details of the objects selected"
+        },
+        {
+          "_block": "youtube-video",
+          "url": "https://youtu.be/y042UQVL5eg",
+          "title": "Transform Tool Demo"
+        }
+      ]
+    },
+    {
       "title": "Blender Envrionments",
       "slug": "blender-environments",
       "category": "environmental",
