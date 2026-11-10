@@ -145,6 +145,27 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
 .project-button-label { display: flex; justify-content: space-between; gap: 12px; padding-top: 14px; }
 .project-button-label strong { font-size: 1.2rem; font-weight: 500; letter-spacing: -.04em; }
 .project-button-label small { color: var(--muted); font-family: "DM Mono", monospace; font-size: .58rem; text-align: right; text-transform: uppercase; line-height: 1.4; }
+.games-page .page-intro { margin-bottom: 48px; }
+.game-card { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 8%; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+.game-card:focus-visible { outline: 2px solid var(--acid); outline-offset: 6px; }
+.game-card-image { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: #242725; transition: filter .25s ease, transform .25s ease; }
+.game-card:hover .game-card-image { filter: saturate(1.15); transform: translateY(-4px); }
+.game-card-copy { max-width: 470px; }
+.game-card-copy h2 { margin: 0 0 20px; font-size: clamp(2rem, 4vw, 4rem); line-height: .95; letter-spacing: -.07em; font-weight: 500; }
+.game-card-copy > p:not(.project-index) { color: var(--muted); line-height: 1.55; }
+.game-card-link { display: inline-block; margin-top: 18px; border-bottom: 1px solid var(--ink); padding-bottom: 6px; font-size: .85rem; }
+.game-card-link span { padding-left: 12px; color: var(--coral); }
+.cliffhangers-page h1 { margin-bottom: 34px; }
+.cliffhangers-hero { display: block; width: 100%; max-height: 720px; object-fit: contain; background: #242725; }
+.cliffhangers-production { margin-top: 42px; }
+.cliffhangers-work { margin: 40px 0 80px; padding-top: 30px; border-top: 1px solid var(--line); }
+.cliffhangers-work-heading { margin-bottom: 24px; }
+.cliffhangers-work-heading h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 3rem); line-height: .95; letter-spacing: -.06em; font-weight: 500; }
+.cliffhangers-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.cliffhangers-gallery figure { margin: 0; }
+.cliffhangers-gallery img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #242725; }
+.cliffhangers-gallery figcaption { margin-top: 12px; color: var(--muted); font-family: "DM Mono", monospace; font-size: .65rem; text-transform: uppercase; }
+.cliffhangers-links { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .template-note { color: var(--muted); font-family: "DM Mono", monospace; font-size: .6rem; margin: 26px 0 0; }
 .feature { padding-bottom: 140px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; }
@@ -268,6 +289,13 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.075em; }
   .project-button-image { min-height: 300px; }
   .project-button-label { display: block; }
   .project-button-label small { display: block; text-align: left; margin-top: 5px; }
+  .game-card { display: block; }
+  .game-card-image { margin-bottom: 28px; }
+  .game-card-copy h2 { font-size: 2.5rem; }
+  .cliffhangers-gallery { display: block; }
+  .cliffhangers-gallery figure + figure { margin-top: 24px; }
+  .cliffhangers-work { margin-bottom: 54px; }
+  .cliffhangers-links { align-items: flex-start; flex-direction: column; }
   .project-detail { padding: 60px 0 80px; }
   .project-detail h1 { margin: 34px 0 42px; }
   .detail-hero-group { margin-bottom: 50px; }
