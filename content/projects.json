@@ -578,6 +578,35 @@
       ]
     },
     {
+      "title": "Rat Renders",
+      "slug": "rat-od",
+      "category": "environmental",
+      "description": "A personal fun made due to being away from my PC to create renders",
+      "heroImage": "/assets/images/projects/RatOD/rat smoking.png",
+      "heroAlt": "Rat",
+      "softwareIcons": [
+        "BlenderIcon.webp"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Rat Renders",
+      "mainText": "I was away from my pc when on holiday and had the urge to create when i returned and created the rat renders.",
+      "role": "Artist",
+      "tools": "Blender\nPhotoshop",
+      "cardImage": "/assets/images/projects/RatOD/rat boot 1.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/RatOD/rat smoking.png",
+            "/assets/images/projects/RatOD/Rat Od.png",
+            "/assets/images/projects/RatOD/rat boot 1.png"
+          ],
+          "alt": "Renders",
+          "caption": "I wanted a dark worn look with alot of grime to reflect the atmosphere of this rat playing with materials and lighting to get a surrealist look to everything "
+        }
+      ]
+    },
+    {
       "title": "Room Lighting",
       "slug": "room-lighting",
       "category": "lighting",
