@@ -1,0 +1,36 @@
+{
+  "title": "Sheng Lam Models",
+  "slug": "sheng-lam-models",
+  "category": "models",
+  "description": "Models using Sheng Lam's work as reference",
+  "heroImage": "/assets/images/projects/ShengLamProps/gian-subrt-holly-screenshot-2024-01-21-190228.jpg",
+  "heroAlt": "Soundkloud prop",
+  "softwareIcons": [
+    "BlenderIcon.webp",
+    "PainterIcon.png"
+  ],
+  "softwareIconPlacement": "overlay",
+  "lede": "Sheng Lam Props",
+  "mainText": "These props were made for a university project, where the task was to use Sheng Lam's References as the work base",
+  "role": "Modeller",
+  "tools": "Blender\nSubstance Painter",
+  "cardImage": "/assets/images/projects/ShengLamProps/gian-subrt-holly-screenshot-2024-01-21-190228.jpg",
+  "sections": [
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/ShengLamProps/sheng-lam-02.jpg",
+        "/assets/images/projects/ShengLamProps/sheng-lam-2-soundkloud.jpg"
+      ],
+      "alt": "Sheng Lam's References"
+    },
+    {
+      "_block": "image",
+      "image": [
+        "/assets/images/projects/ShengLamProps/gian-subrt-holly-screenshot-2024-01-19-014159.jpg",
+        "/assets/images/projects/ShengLamProps/gian-subrt-holly-screenshot-2024-01-21-190228.jpg"
+      ],
+      "alt": "Props"
+    }
+  ]
+}
