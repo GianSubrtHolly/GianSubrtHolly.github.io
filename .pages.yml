@@ -92,7 +92,7 @@ content:
             - label: Painter
               value: PainterIcon.png
             - label: Photoshop
-              value: PhotoshopIcon.webp
+              value: PhotoshopIcon.png
             - label: Unreal Engine
               value: UnrealEngineIcon.png
       - name: softwareIconPlacement
