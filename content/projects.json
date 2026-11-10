@@ -315,7 +315,7 @@
       "title": "Landscape Tool",
       "slug": "landscape-tool",
       "category": "technical",
-      "description": "This landscape tool was made for a university project.",
+      "description": "A landscape tool made within Unreal Engine",
       "heroImage": "/assets/images/projects/TechArtUniTools/TerrainTool/Screenshot 2025-11-22 183338.png",
       "heroAlt": "Transform Tool",
       "softwareIcons": [
