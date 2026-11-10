@@ -6,7 +6,8 @@
   "heroImage": "/assets/images/projects/RatOD/rat smoking.png",
   "heroAlt": "Rat",
   "softwareIcons": [
-    "BlenderIcon.webp"
+    "BlenderIcon.webp",
+    "PhotoshopIcon.png"
   ],
   "softwareIconPlacement": "overlay",
   "lede": "Rat Renders",
