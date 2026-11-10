@@ -91,6 +91,8 @@ content:
               value: HoudiniIcon.png
             - label: Painter
               value: PainterIcon.png
+            - label: Photoshop
+              value: PhotoshopIcon.webp
             - label: Unreal Engine
               value: UnrealEngineIcon.png
       - name: softwareIconPlacement
