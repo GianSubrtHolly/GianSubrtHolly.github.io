@@ -786,6 +786,74 @@
       ]
     },
     {
+      "title": "Talespire Environment",
+      "slug": "talespire-environment",
+      "category": "environmental",
+      "description": "A personal project made with Houdini and Talespire",
+      "heroImage": "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 194708.png",
+      "heroAlt": "Mountain Level",
+      "softwareIcons": [
+        "HoudiniIcon.png"
+      ],
+      "softwareIconPlacement": "overlay",
+      "lede": "Talespire Houdini Enviroments",
+      "mainText": "This project was to host a DND game I made years ago, I have a problem with theatre of mind especially the use of spells in the 3D space and wanted to give players a more interactive, and higher tier experience, along with a visual of the map and situations they are in, it allows for better exploration and allows for more than would come usually.",
+      "role": "Environmental Artist",
+      "tools": "Houdini \nTalespire",
+      "cardImage": "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 194708.png",
+      "sections": [
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-24 190052.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-24 190801.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-24 181618.png"
+          ],
+          "alt": "Houdini workflow",
+          "caption": "I would build the map and add noise and layers depending on water erosion, rainfall and other simulated houdini properties, assign them masks and then paint exclusion maps for trees and brush in areas i wouldnt want them located at"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-24 211121.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 140901.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 180039.png"
+          ],
+          "alt": "Talespire environment implimentation",
+          "caption": "After i build the base in Houdini i port it into Talespire and start cleaning up any messes and build the rest of the map, this was a great workflow for what i wanted and allowed for realistic looking maps"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 193710.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 194218.png"
+          ],
+          "alt": "Houdini example 2"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 194708.png"
+          ],
+          "alt": "Talespire Port Example 2"
+        },
+        {
+          "_block": "image",
+          "image": [
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 140948.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 141014.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 141052.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 180110.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 180145.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2025-04-25 180206.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2026-11-12 084324.png",
+            "/assets/images/projects/TalespireMap/Screenshot 2026-11-12 084243.png"
+          ],
+          "alt": "Finalised maps"
+        }
+      ]
+    },
+    {
       "title": "Transform Tool",
       "slug": "transform-tool",
       "category": "technical",
