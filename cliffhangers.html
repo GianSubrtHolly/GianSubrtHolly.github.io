@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Cliffhangers: an industry award-winning game made in eight weeks. Co-Art Lead and Technical Artist: Gian Subrt Holly."><title>Cliffhangers | Gian Subrt Holly</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=17"><script src="scripts/cliffhangers-board.js?v=2" defer></script>
 </head>
 <body>
   <header class="site-header"><a class="brand" href="index.html" aria-label="Gian Subrt Holly home">GSH<span class="brand-mark">+</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a class="active" href="games.html">Games</a><a href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a></nav></header>
@@ -10,17 +10,208 @@
     <h1>Cliffhangers</h1>
     <img class="cliffhangers-hero" src="assets/images/projects/Cliffhangers/tBisLp.png" alt="Cliffhangers key art">
     <div class="detail-grid">
-      <div><p class="project-index">Overview</p><p class="detail-lede">Cliffhangers</p></div>
+      <div class="cliffhangers-overview">
+        <p class="project-index">Overview</p>
+        <p class="detail-lede">Cliffhangers</p>
+        <a class="cliffhangers-play-button" href="https://rolling-barrel.itch.io/cliffhangers" target="_blank" rel="noopener noreferrer">Play Cliffhangers <span aria-hidden="true">↗</span></a>
+      </div>
       <div class="detail-copy">
         <p>My role on Cliffhangers was Co-Art Lead and Technical Artist. This project page brings together how the game was made, selected work, and the production behind it.</p>
         <div class="detail-meta"><p><span>Role</span>Co-Art Lead<br>Technical Artist</p></div>
       </div>
     </div>
-    <section class="cliffhangers-work" aria-labelledby="cliffhangers-work-title">
-      <div class="cliffhangers-work-heading"><p class="project-index">Selected work</p><h2 id="cliffhangers-work-title">In-game moments</h2></div>
-      <div class="cliffhangers-gallery">
-        <figure><img src="assets/images/projects/Cliffhangers/FO02tq.png" alt="Cliffhangers gameplay showing players in an arena"><figcaption>Gameplay</figcaption></figure>
-        <figure><img src="assets/images/projects/Cliffhangers/xTGaba.png" alt="Cliffhangers character selection screen"><figcaption>Character selection</figcaption></figure>
+    <section class="cliffhangers-team" aria-labelledby="cliffhangers-team-title">
+      <div class="cliffhangers-team-heading"><p class="project-index">Behind the scenes</p><h2 id="cliffhangers-team-title">The Team</h2></div>
+      <div class="cliffhangers-team-grid">
+        <img src="assets/images/projects/Cliffhangers/1779788008208.jpg" alt="The Cliffhangers team receiving the Industry Choice award">
+        <p class="detail-copy">The Team comprised of around 28 members, In this image of us receiving the Industry Choice award, a small portion of our team is present. Even though I look tired in the image I enjoyed this project heavily, i just couldn't sleep the night prior.</p>
+      </div>
+    </section>
+    <section class="project-content-block cliffhangers-role" aria-labelledby="cliffhangers-role-title">
+      <div class="cliffhangers-role-summary">
+        <p class="project-index">Role &amp; responsibilities</p>
+        <h2 id="cliffhangers-role-title">My Role</h2>
+        <p class="cliffhangers-role-title">Co-Art Lead &amp; Technical Artist</p>
+        <p class="cliffhangers-role-partner">Co-led the art team alongside Chloe Gratton.</p>
+        <div class="cliffhangers-role-stat"><strong>12</strong><span>members in the art department</span></div>
+      </div>
+      <div class="project-block-copy cliffhangers-role-content">
+        <div class="cliffhangers-role-groups">
+          <section class="cliffhangers-role-group">
+            <h3 class="project-index">Art direction &amp; leadership</h3>
+            <ul>
+              <li>Led the team in art direction</li>
+              <li>Hosted weekly art team meetings</li>
+              <li>Made key decisions alongside the team</li>
+            </ul>
+          </section>
+          <section class="cliffhangers-role-group">
+            <h3 class="project-index">Production</h3>
+            <ul>
+              <li>Created assets for the team</li>
+              <li>Streamlined asset production</li>
+            </ul>
+          </section>
+          <section class="cliffhangers-role-group">
+            <h3 class="project-index">Team support &amp; quality</h3>
+            <ul>
+              <li>Communicated with and assisted team members one-to-one</li>
+              <li>Carried out quality assurance, gave feedback, and made changes</li>
+            </ul>
+          </section>
+          <section class="cliffhangers-role-group">
+            <h3 class="project-index">Technical art</h3>
+            <ul>
+              <li>Created tools for the team</li>
+              <li>Worked on simulations and generators</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section class="cliffhangers-my-work" aria-labelledby="cliffhangers-my-work-title">
+      <div class="cliffhangers-my-work-heading">
+        <h2 id="cliffhangers-my-work-title">My Work</h2>
+      </div>
+      <div class="cliffhangers-board-panel">
+        <div class="cliffhangers-board-toolbar">
+          <p id="cliffhangers-board-help">Drag to pan · Scroll to zoom</p>
+          <div class="cliffhangers-board-controls" role="group" aria-label="Board zoom controls">
+            <button type="button" data-board-zoom-out aria-label="Zoom out">−</button>
+            <output data-board-zoom-level aria-live="polite">100%</output>
+            <button type="button" data-board-zoom-in aria-label="Zoom in">+</button>
+            <button type="button" data-board-reset>Fit board</button>
+          </div>
+        </div>
+        <div class="cliffhangers-board-viewport" data-board-viewport role="region" aria-label="Cliffhangers project work board" aria-describedby="cliffhangers-board-help" tabindex="0">
+          <div class="cliffhangers-board-canvas" data-board-canvas>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-cloth" aria-labelledby="board-frame-cloth-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-cloth-title">Curtain &amp; flag assets</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <img src="assets/icons/MarvelousDesignerIcon.png" alt="Marvelous Designer" loading="lazy">
+                  <img src="assets/PagesIcons/BlenderIcon.webp" alt="Blender" loading="lazy">
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/image%20%2830%29.png" alt="Curtain cloth drape simulation" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/image%20%2831%29.png" alt="Cloth simulation study" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-27%20093128.png" alt="Curtain mesh in Blender" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-24%20174037.png" alt="Wireframe topology of the remeshed curtain" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-30%20045832.png" alt="Curtain 3 FBX asset preview" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-30%20050505.png" alt="Two exported curtain FBX assets" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-cloth" role="note" aria-label="Environmental art project note">
+              <span>Environmental art</span>
+              <p>Created optimised curtain and flag assets with Marvelous Designer, then remeshed them in Blender.</p>
+            </aside>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-bricks" aria-labelledby="board-frame-bricks-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-bricks-title">Procedural brick generator</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <img src="assets/PagesIcons/BlenderIcon.webp" alt="Blender" loading="lazy">
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-08%20050010.png" alt="Generated broken brick geometry" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-08%20050038.png" alt="Geometry Nodes generator settings" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-08%20050150.png" alt="Second generated broken brick variation" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-08%20050216.png" alt="Geometry Nodes brick generator setup" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-08%20050219.png" alt="Repeated generated brick wall" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-bricks" role="note" aria-label="Brick generator production decision">
+              <span>Production decision</span>
+              <p>Built to help the environmental art team create random broken-brick walls. After discussing the workflow with the environmental artists, they preferred handcrafted walls. I agreed and scrapped the generator.</p>
+            </aside>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-material" aria-labelledby="board-frame-material-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-material-title">Substance Designer base material</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <img src="assets/PagesIcons/DesignerIcon.png" alt="Substance 3D Designer" loading="lazy">
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-18%20072914.png" alt="Painted-style base material on a sample sphere" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-20%20161153.png" alt="Character asset using the painted-style material" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-22%20174820.png" alt="Painted-style material applied to a surface" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-22%20174845.png" alt="Substance Designer material graph" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20081311.png" alt="Team feedback and material preset discussion" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-material" role="note" aria-label="Shared base material description">
+              <span>Shared material</span>
+              <p>Created a configurable Substance Designer base material as an undercoat for the team's assets, helping them fit the painted art style. I exposed most parameters and shared it with a teammate for feedback and improvements. They created presets for the team using my material as the base.</p>
+            </aside>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-props" aria-labelledby="board-frame-props-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-props-title">Props, proxies, materials &amp; tools</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <img src="assets/PagesIcons/BlenderIcon.webp" alt="Blender" loading="lazy">
+                  <img src="assets/PagesIcons/PainterIcon.png" alt="Substance 3D Painter" loading="lazy">
+                  <img src="assets/PagesIcons/DesignerIcon.png" alt="Substance 3D Designer" loading="lazy">
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-30%20045759.png" alt="Coin-pile generator output in Blender" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-30%20045821.png" alt="Coin-pile asset variations" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-02%20163346.png" alt="Quicksand material on two surfaces" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-15%20172915.png" alt="Proxy props with checker textures" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20090841.png" alt="Assortment of environmental prop models" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20091132.png" alt="Selected proxy geometry in Blender" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20091139.png" alt="Rock proxy model" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20091157.png" alt="Cannon prop model" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20091209.png" alt="Spike trap prop model" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-13%20091214.png" alt="Stone pressure-plate prop model" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-props" role="note" aria-label="Props and tools description">
+              <span>Props &amp; tools</span>
+              <p>Created proxy models for all of our props so the team could use them immediately. I built a coin-pile generator for environmental art, enabling quick, optimised set dressing with more control and faster iteration than a gravity simulation. I also created a quicksand material for a trap.</p>
+            </aside>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-communication" aria-labelledby="board-frame-communication-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-communication-title">Team communication &amp; art direction</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <span class="cliffhangers-board-tool-mark cliffhangers-board-tool-mark-teams" role="img" aria-label="Microsoft Teams">T</span>
+                  <span class="cliffhangers-board-tool-mark cliffhangers-board-tool-mark-powerpoint" role="img" aria-label="Microsoft PowerPoint">P</span>
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20081348.png" alt="Teams discussion requesting feedback on a landmine concept" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20081243.png" alt="Team feedback on modular wall mockups" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20081233.png" alt="Team exchange about concept art submission format" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-11%20180352.png" alt="Asset planning sheet with trap and environment requirements" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-12%20054404.png" alt="Art direction slide describing texel density" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-12%20055320.png" alt="Art direction slide describing measurements and units" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-12%20082416.png" alt="Art direction slide defining asset size specifications" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-04-17%20162449.png" alt="Marked prop concept sheet for team feedback" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-03-05%20142755.png" alt="Measured wall and plank concept for asset direction" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-communication" role="note" aria-label="Team communication and art direction">
+              <span>Team direction</span>
+              <p>Stayed available to teammates through Microsoft Teams whenever they needed support. I made decisions about asset scale and design, then communicated them to the team. I also created an art and technical direction PowerPoint outlining the asset and texture production workflow.</p>
+            </aside>
+            <section class="cliffhangers-board-frame cliffhangers-board-frame-unreal" aria-labelledby="board-frame-unreal-title">
+              <div class="cliffhangers-board-frame-heading">
+                <h3 id="board-frame-unreal-title">Asset playground &amp; integration</h3>
+                <div class="cliffhangers-board-tools" role="group" aria-label="Software used">
+                  <img src="assets/PagesIcons/UnrealEngineIcon.png" alt="Unreal Engine" loading="lazy">
+                </div>
+              </div>
+              <div class="cliffhangers-board-gallery">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20021535.png" alt="Assets arranged in the Unreal Engine asset playground" loading="lazy" draggable="false">
+                <img src="assets/images/projects/Cliffhangers/Screenshot%202026-05-09%20021544.png" alt="Unreal Engine asset playground categories and locations" loading="lazy" draggable="false">
+              </div>
+            </section>
+            <aside class="cliffhangers-board-note cliffhangers-board-note-unreal" role="note" aria-label="Asset integration description">
+              <span>Asset integration</span>
+              <p>Integrated art assets into Unreal Engine and built an asset playground, giving team members a dedicated place to find and access them.</p>
+            </aside>
+          </div>
+        </div>
       </div>
     </section>
     <div class="cliffhangers-links"><a class="back-link" href="games.html">← Back to games</a><a class="text-link" href="https://rolling-barrel.itch.io/cliffhangers" target="_blank" rel="noopener noreferrer">Play Cliffhangers on itch.io <span>↗</span></a></div>

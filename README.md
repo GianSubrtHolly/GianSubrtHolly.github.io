@@ -16,6 +16,8 @@ Static portfolio website for games art.
 - `assets/images/` - artwork, stills, and poster images
 - `assets/videos/` - trailers and process reels
 
+See [STYLE_GUIDE.md](STYLE_GUIDE.md) for the shared visual conventions and layout patterns.
+
 The site uses relative links, so the tab navigation works directly on GitHub Pages or from a local folder. On the homepage, duplicate a `.project-button` link in the project grid to add another tile. Change its `href`, title, category text, and image class. The matching `project-*.html` file is the detailed destination for that tile.
 
 Replace the portrait placeholder in `index.html` with an `<img>` pointing to `assets/images/your-name.jpg`. Replace the detail-page gallery placeholders with `<img>` or `<video>` elements pointing to files in the asset folders.

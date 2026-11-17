@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <header class="site-header">
@@ -17,19 +17,19 @@
       <a href="index.html">Home</a><a href="games.html">Games</a><a class="active" href="work.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="special-thanks.html">Special thanks</a>
     </nav>
   </header>
-  <main class="page-shell test-page">
-    <div class="test-intro"><h1>Projects</h1><p>Choose a category to load its projects beside it.</p></div>
-    <div class="test-layout">
-      <aside class="test-categories" aria-label="Project categories">
-        <button class="test-category is-active" type="button" data-category="materials">Materials <span>↗</span></button>
-        <button class="test-category" type="button" data-category="models">3D Models <span>↗</span></button>
-        <button class="test-category" type="button" data-category="environmental">Environmental Art <span>↗</span></button>
-        <button class="test-category" type="button" data-category="lighting">Lighting Art <span>↗</span></button>
-        <button class="test-category" type="button" data-category="technical">Technical Art <span>↗</span></button>
+  <main class="page-shell project-browser-page">
+    <div class="project-browser-intro"><h1>Projects</h1><p>Choose a category to load its projects beside it.</p></div>
+    <div class="project-browser-layout">
+      <aside class="project-browser-categories" aria-label="Project categories">
+        <button class="project-browser-category is-active" type="button" data-category="materials">Materials <span>↗</span></button>
+        <button class="project-browser-category" type="button" data-category="models">3D Models <span>↗</span></button>
+        <button class="project-browser-category" type="button" data-category="environmental">Environmental Art <span>↗</span></button>
+        <button class="project-browser-category" type="button" data-category="lighting">Lighting Art <span>↗</span></button>
+        <button class="project-browser-category" type="button" data-category="technical">Technical Art <span>↗</span></button>
       </aside>
-      <section class="test-project-panel" aria-live="polite" aria-label="Projects in selected category">
-        <div class="test-panel-heading"><p id="test-category-name">Materials</p><span id="test-project-count">0 projects</span></div>
-        <div class="test-project-scroll" id="test-project-list"></div>
+      <section class="project-browser-panel" aria-live="polite" aria-label="Projects in selected category">
+        <div class="project-browser-panel-heading"><p id="project-browser-category-name">Materials</p><span id="project-browser-project-count">0 projects</span></div>
+        <div class="project-browser-list" id="project-browser-list"></div>
       </section>
     </div>
   </main>
@@ -62,9 +62,9 @@
     };
     const projectSlug = (value) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || '')) ? String(value) : '';
     let projects = [];
-    const projectList = document.querySelector('#test-project-list');
-    const categoryName = document.querySelector('#test-category-name');
-    const projectCount = document.querySelector('#test-project-count');
+    const projectList = document.querySelector('#project-browser-list');
+    const categoryName = document.querySelector('#project-browser-category-name');
+    const projectCount = document.querySelector('#project-browser-project-count');
     function showCategory(category) {
       const categoryProjects = projects.filter((project) => project.category === category && projectSlug(project.slug));
       categoryName.textContent = categoryLabels[category];
@@ -79,11 +79,11 @@
       }
       categoryProjects.forEach((project, index) => {
         const card = document.createElement('a');
-        card.className = 'test-project-card';
+        card.className = 'project-browser-card';
         card.href = `project.html?slug=${encodeURIComponent(projectSlug(project.slug))}`;
         card.setAttribute('aria-label', `Open ${project.title} project`);
         const image = document.createElement('span');
-        image.className = 'test-project-image';
+        image.className = 'project-browser-image';
         const cardImage = localProjectImage(project.cardImage);
         if (cardImage) {
           image.classList.add('has-upload');
@@ -100,9 +100,9 @@
           image.append(uploadedImage);
         }
         const copy = document.createElement('span');
-        copy.className = 'test-project-copy';
+        copy.className = 'project-browser-copy';
         const titleRow = document.createElement('span');
-        titleRow.className = 'test-project-title-row';
+        titleRow.className = 'project-browser-title-row';
         const title = document.createElement('strong');
         title.textContent = project.title;
         titleRow.append(title);
@@ -111,7 +111,7 @@
           : [];
         if (selectedSoftwareIcons.length) {
           const iconList = document.createElement('span');
-          iconList.className = 'test-project-software-icons';
+          iconList.className = 'project-browser-software-icons';
           iconList.setAttribute('role', 'group');
           iconList.setAttribute('aria-label', 'Software used');
           selectedSoftwareIcons.forEach((icon) => {
@@ -130,15 +130,15 @@
         copy.append(titleRow, description);
         card.append(image, copy);
         const arrow = document.createElement('span');
-        arrow.className = 'test-project-arrow';
+        arrow.className = 'project-browser-arrow';
         arrow.textContent = '↗';
         card.append(arrow);
         projectList.append(card);
       });
     }
-    document.querySelectorAll('.test-category').forEach((button) => {
+    document.querySelectorAll('.project-browser-category').forEach((button) => {
       button.addEventListener('click', () => {
-        document.querySelector('.test-category.is-active').classList.remove('is-active');
+        document.querySelector('.project-browser-category.is-active').classList.remove('is-active');
         button.classList.add('is-active');
         showCategory(button.dataset.category);
       });
